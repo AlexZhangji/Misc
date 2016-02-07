@@ -64,7 +64,7 @@
 	var KeyNum_pressed = false;
 	// list to store array of input numbers
 	var inputList = [];
-
+	// var divide sign = ÷
 
 	function parse_click_num(clickNum){
 		if (clickNum.length >= 7){
@@ -79,6 +79,9 @@
 			screen_num.innerHTML = parse_click_num(v.innerHTML);
 			cur_num_str = screen_num.innerHTML;
 			KeyNum_pressed = true;
+
+			inputList.push(cur_num_str);
+			document.getElementById('lowerNum').innerHTML = get_formula(inputList);
 		}else{
 			// input num should not be too large
 			if( parse_click_num(document.getElementById('screenNum').innerHTML).length < 4 && cur_num_str !== 0){
@@ -86,15 +89,18 @@
 				cur_num_str += parse_click_num(v.innerHTML);
 				screen_num.innerHTML = cur_num_str;
 				
-				console.log('cur num:' + cur_num_str + '\nhtml:' + parse_click_num(v.innerHTML) + '\n inner:' + v.innerHTML);
+				//remove previous single digits
+				inputList.pop();
+				inputList.push(cur_num_str);
+				document.getElementById('lowerNum').innerHTML = get_formula(inputList);
+				console.log('cur num:' + cur_num_str + '\n inner:' + parse_click_num(v.innerHTML));
 			}
 			else{
 				alert('Too many digits (#`Д´)>')
 			}	
 		}
-		// add digits to input list
-		inputList.push(cur_num_str);
-		document.getElementById('lowerNum').innerHTML = get_formula(inputList);
+		
+		
 		
 		keySign_pressed = false;
 	// end of click_num
@@ -107,7 +113,7 @@
 			if(curList[i] === '+' || curList[i] === '-' ){
 				curList.splice(0,0,'(');
 				curList.splice(i+3,0,')');
-				// console.log('curList:' + curList.join(''));
+				console.log('curList:' + curList.join(''));
 				return curList;	
 			}
 		}
@@ -123,24 +129,26 @@
 
 			if(list[i] === 'x' || list[i] === '÷' ){
 				curList = add_prarentheses(curList);
+				console.log('prarentheses added');
 			}
 
 			curList.push(list[i]);
-			
+			console.log('list:' + curList.join(''));
 		}
+
 
 		// make it string
 		// repace ÷ as / and x as *
 		var curStr = curList.join('');
 		curStr = curStr.split('x').join('*');
 		curStr = curStr.split('÷').join('/');
-		console.log(curStr);
+		console.log('formula:' + curStr);
 		return curStr;
 	}
 
 	function get_result(list){
 		// list must be even
-		var sum = 0.0;
+		var sum = parseFloat(list[0]);
 		for(var i = 0; i < list.length; i++){
 			// every odd slot is operator 
 			if(i%2 === 1){
@@ -151,10 +159,11 @@
 				}
 				else if(list[i] === 'x'){
 					sum *= parseFloat(list[i+1]);
-				}else if(list[i] === '-'){
+				}else if(list[i] === '÷'){
 					sum /= parseFloat(list[i+1]);
 				}
 
+				console.log('sum = ' + list[i] +  list[i+1] + list[i+2] + ' = ' + sum);
 				i = i+1;
 			}
 		}
@@ -172,36 +181,50 @@
 				if(cur_num_str.length > 1){
 					cur_num_str = cur_num_str.slice(0,-1);
 					console.log(cur_num_str);
-					// why cant I use screen_num here?
+
+					inputList.pop();
+					inputList.push(cur_num_str);
+					document.getElementById('lowerNum').innerHTML = get_formula(inputList);
 					document.getElementById('screenNum').innerHTML = cur_num_str;
 				}
 				else{
 					cur_num_str = 0;
+
+					inputList.pop();
+					document.getElementById('lowerNum').innerHTML = get_formula(inputList);
 					document.getElementById('screenNum').innerHTML = cur_num_str;
 				}
 			}else if(sign === '+' || sign === '-' || sign === 'x' || sign === '÷' ){
-				inputList.push(cur_num_str);
+				// inputList.push(cur_num_str);
 				inputList.push(sign);
+
 				cur_num_str = '';
 				document.getElementById('screenNum').innerHTML = cur_num_str;
 				document.getElementById('lowerNum').innerHTML = get_formula(inputList);
+				
+				// disable sign input unless 
+				keySign_pressed = true;
+				// enable multi digits input 
+				KeyNum_pressed = false;
 			}
 			else if(sign === '='){
-				if(inputList.length/2 === 1){
+				console.log('inputList length: ' +inputList.length + '\n inputlist:' + inputList.join('') );
+				if(inputList.length%2 === 1){
 				// show the result to larger num
 				document.getElementById('screenNum').innerHTML = get_result(inputList);
 				document.getElementById('lowerNum').innerHTML += ' = ' + get_result(inputList);
 				}else{
 					alert('Not enough numbers for operators.')
 				}
+				// disable sign input unless 
+				keySign_pressed = true;
+				// enable multi digits input 
+				KeyNum_pressed = false;
 			}
 			else{
 				alert('Out of nothing comes nothing (#`Д´)>');
 			}
-			// disable sign input unless 
-			keySign_pressed = true;
-			// enable multi digits input 
-			KeyNum_pressed = false;
+			
 		}
 		else{
 			console.log('keySign_pressed is true');
