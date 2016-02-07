@@ -110,6 +110,10 @@
 
 	function add_prarentheses(curList){
 		for(var i = curList.length; i > 0; i--){
+			if(curList[i] === 'x' || curList[i] === '÷' ){
+				break;
+			}
+
 			if(curList[i] === '+' || curList[i] === '-' ){
 				curList.splice(0,0,'(');
 				curList.splice(i+3,0,')');
