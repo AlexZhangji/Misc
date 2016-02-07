@@ -1,0 +1,190 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Quicksand);
+
+body{
+   font-family: 'Quicksand', sans-serif;
+	font-size: 20pt;
+
+
+}
+
+html, body {
+    height: 100%;
+}
+
+
+#container{
+	width: 500px;
+	text-align: center;
+	margin: auto;
+	padding: 10px;
+	height: 100%;
+}
+
+#screen{
+	background-color: #F4F4F4;
+	width: 484px;
+	/*width= 128*3_100*/
+	height: 200px;
+	box-shadow:2px 2px 16px 2px rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	z-index: 777;
+	overflow: hidden;
+}
+
+#screenNum{
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 400;
+	float: right;
+	margin-top:40px; 
+	margin-right: 25px;
+	font-size: 45pt;
+	min-width:80px; 
+	min-height:80px;
+}
+
+#lowerNum{
+	font-family: 'Quicksand', sans-serif;
+	float: right;
+	margin-top:40px; 
+	margin-right: 25px;
+	font-size: 18pt;
+}
+
+
+#rightPane{
+	float: left;
+	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	overflow: hidden;
+}
+
+#leftPane{
+	float: left;
+	box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+	overflow: hidden;
+}
+
+.keyNum{
+	background-color: #434343;
+	width:128px;
+	height: 128px;
+	text-align: center;
+	/*vertical-align: middle;*/
+	float: left;
+	line-height: 128px;
+	color: #fff;
+	font-size: 28pt;
+	text-shadow: 1px 1px 1px #ccc;
+	overflow: hidden;
+}
+
+
+
+.keySign{
+	background-color: #636363;
+	width:100px;
+	height: 102.4px;
+	text-align: center;
+	/*vertical-align: middle;*/
+	float: right;
+	line-height: 102px;
+	color: #BCBCBC;
+	font-size: 23pt;
+
+	position: relative;
+	overflow: hidden;
+}
+
+
+
+h1{
+	font-family: Garamond;
+	font-size:4.5em;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* IE/Edge */
+  user-select: none;           /* non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+
+
+/*animation for click effect*/
+
+.wrapper:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+.ripplelink{
+  display:block;
+  text-decoration:none;
+  position:relative;
+  overflow:hidden;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  z-index:0;
+}
+
+.ripplelink:hover{
+/*	z-index:1000;
+  box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+  -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;
+  -moz-box-shadow:rgba(0, 0, 0, 0.3) 0 16px 16px 0;*/
+}
+
+.ink {
+  display: block;
+  position: absolute;
+  background:rgba(255, 255, 255, 0.3);
+  border-radius: 100%;
+  -webkit-transform:scale(0);
+     -moz-transform:scale(0);
+       -o-transform:scale(0);
+          transform:scale(0);
+}
+
+.animate {
+	-webkit-animation:ripple 0.4s linear;
+   -moz-animation:ripple 0.4s linear;
+    -ms-animation:ripple 0.4s linear;
+     -o-animation:ripple 0.4s linear;
+        animation:ripple 0.4s linear;
+}
+	
+@-webkit-keyframes ripple {
+    100% {opacity: 0; -webkit-transform: scale(1.2);}
+}
+@-moz-keyframes ripple {
+    100% {opacity: 0; -moz-transform: scale(1.2);}
+}
+@-o-keyframes ripple {
+    100% {opacity: 0; -o-transform: scale(1.2);}
+}
+@keyframes ripple {
+    100% {opacity: 0; transform: scale(1.2);}
+}
+
+
+.cyan{
+  background:#00bcd4;
+}
+
+.lightgreen{
+  background:#8bc34a;
+}
+
+.amber{
+  background:#ffc107;
+}
+
+.orange{
+  background:#ff9800;
+}
