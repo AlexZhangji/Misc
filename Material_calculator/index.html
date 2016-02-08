@@ -172,6 +172,12 @@
 			}
 		}
 
+		// limite decimal points when need
+		if((sum.toString()).indexOf('.') > -1){
+			sum = sum.toFixed(3);
+			console.log('limited decimal');
+		}
+
 		return sum;
 	}
 
