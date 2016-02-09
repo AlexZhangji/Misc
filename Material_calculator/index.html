@@ -58,14 +58,20 @@
 	</div>
 
 	<script type="text/javascript">
+	// number shown in screen
 	var screen_num = document.getElementById('screenNum');
+	
+	// global vars for calculate and logic 
 	var cur_num_str;
 	var keySign_pressed = false;
 	var KeyNum_pressed = false;
-	// list to store array of input numbers
+
+	//store user inputs, includes operators
 	var inputList = [];
+
 	// var divide sign = ÷
 
+	// helper function that deal with span tag added by click effect JQuery
 	function parse_click_num(clickNum){
 		if (clickNum.length >= 7){
 			clickNum = clickNum.split('</span>')[1];
@@ -74,6 +80,7 @@
 		return clickNum;
 	}
 
+	// invoike when click on number btn
 	function click_num(v){
 		if(KeyNum_pressed === false || cur_num_str === 0){
 			screen_num.innerHTML = parse_click_num(v.innerHTML);
@@ -89,31 +96,33 @@
 				cur_num_str += parse_click_num(v.innerHTML);
 				screen_num.innerHTML = cur_num_str;
 				
-				//remove previous single digits
+				//remove previous single digits, update the lower screen and userinput list
 				inputList.pop();
 				inputList.push(cur_num_str);
 				document.getElementById('lowerNum').innerHTML = get_formula(inputList);
-				console.log('cur num:' + cur_num_str + '\n inner:' + parse_click_num(v.innerHTML));
+				// console.log('cur num:' + cur_num_str + '\n inner:' + parse_click_num(v.innerHTML));
 			}
 			else{
+				// emoji is important
 				alert('Too many digits (#`Д´)>')
 			}	
 		}
 		
-		
-		
+		// logic control, cloud be better
 		keySign_pressed = false;
 	// end of click_num
 	}
 
-	
-
+		
+	// add prarentheses for lower part of screen
 	function add_prarentheses(curList){
 		for(var i = curList.length; i > 0; i--){
+			// if last operator is x or ÷ , skip the process
 			if(curList[i] === 'x' || curList[i] === '÷' ){
 				break;
 			}
 
+			// only add one pair of parentheses every time.
 			if(curList[i] === '+' || curList[i] === '-' ){
 				curList.splice(0,0,'(');
 				curList.splice(i+3,0,')');
@@ -126,6 +135,8 @@
 	}
 
 
+	// print out formula for lower screen
+	// also add parentheses and replace some operator sign for better display
 	function get_formula(list){
 		var curList = [];
 
@@ -142,16 +153,17 @@
 
 
 		// make it string
-		// repace ÷ as / and x as *
+		// repace ÷ as / and x as * for better display
 		var curStr = curList.join('');
 		curStr = curStr.split('x').join('*');
 		curStr = curStr.split('÷').join('/');
-		console.log('formula:' + curStr);
+		// console.log('formula:' + curStr);
 		return curStr;
 	}
 
+
+	// calculate resuts given userInput list
 	function get_result(list){
-		// list must be even
 		var sum = parseFloat(list[0]);
 		for(var i = 0; i < list.length; i++){
 			// every odd slot is operator 
@@ -172,8 +184,8 @@
 			}
 		}
 
-		// limite decimal points when need
-		if((sum.toString()).indexOf('.') > -1){
+		// limite decimal points when there are more than 3 decimal digits
+		if((sum.toString()).indexOf('.') > -1 && num_decimal(sum) > 3){
 			sum = sum.toFixed(3);
 			console.log('limited decimal');
 		}
@@ -181,23 +193,38 @@
 		return sum;
 	}
 
+	// helper function that returns number of decimal digits  
+	function num_decimal(num){
+		if((num.toString()).indexOf('.') === -1){
+			return -1;
+		}else{
+			return num.toString().length - (num.toString()).indexOf('.');
+		}
+	}
 
+	// invoke when click operators.
 	function click_sign(v){
 		if(!keySign_pressed){
+			// extract info with out added span class added by animation JQuery code
 			var sign = parse_click_num(v.innerHTML);
 
 			console.log('clicked:'+ parse_click_num(v.innerHTML));
+			
 			if(sign === 'DEL'){
 				if(cur_num_str.length > 1){
+					// delete last added digit
 					cur_num_str = cur_num_str.slice(0,-1);
 					console.log(cur_num_str);
 
+					// update inputlist and display
 					inputList.pop();
 					inputList.push(cur_num_str);
+					
 					document.getElementById('lowerNum').innerHTML = get_formula(inputList);
 					document.getElementById('screenNum').innerHTML = cur_num_str;
 				}
 				else{
+					// special case for del. when num = 0
 					cur_num_str = 0;
 
 					inputList.pop();
@@ -205,14 +232,13 @@
 					document.getElementById('screenNum').innerHTML = cur_num_str;
 				}
 			}else if(sign === '+' || sign === '-' || sign === 'x' || sign === '÷' ){
-				// inputList.push(cur_num_str);
 				inputList.push(sign);
 
 				cur_num_str = '';
 				document.getElementById('screenNum').innerHTML = cur_num_str;
 				document.getElementById('lowerNum').innerHTML = get_formula(inputList);
 				
-				// disable sign input unless 
+				// disable operator input unless another num is pressed
 				keySign_pressed = true;
 				// enable multi digits input 
 				KeyNum_pressed = false;
@@ -237,12 +263,12 @@
 			
 		}
 		else{
-			console.log('keySign_pressed is true');
+			console.log('Out of nothing comes nothing.(#`Д´)>. ');
 		}
 	}
 
 
-	/*jQuery*/
+	/*jQuery for click animation, modified from others*/ 
 
 		$(function(){
 			var ink, d, x, y;
@@ -259,6 +285,7 @@
 		        ink.css({height: d, width: d});
 		    }
 		     
+		     // make every animation center for btn, not for where click happens.
 		    // x = e.pageX - $(this).offset().left - ink.width()/2;
 		    // y = e.pageY - $(this).offset().top - ink.height()/2;
 
