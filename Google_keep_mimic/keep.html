@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./cc.css">
+  <link rel="stylesheet" href="./ripple.css">
+
+  <!-- Google Font for flat icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+  <title>A8</title>
+</head>
+
+<body>
+  <div id="strip">
+    <i class="material-icons" style="color:#8B6600; float:left; margin-left:14px;">list</i> <span style="float:left; margin-left:24px;">Note</span> <img src='./symbol.png' / style="float:right">
+  </div>
+
+  <div id="container">
+
+
+    <div id='search_pane'>
+      <!-- <form> -->
+      <!-- <h1>Show relevant sites for given input:</h1> -->
+      <input id="input_search" placeholder="Keywords" type="text" required="">
+      <br>
+      <button onclick="search();">Submit</button>
+      <!-- </form>  -->
+    </div>
+
+    <div id="card_pane">
+
+      <div class="card card-1" style="background:#FFD180;">
+        <!-- first level -->
+        <img src="./cat.jpg" class="card_img" />
+        <div class="card_title">
+          Title
+        </div>
+        <div class="card_content">
+          This is content
+        </div>
+
+        <div class="card_option">
+          <i class="material-icons" style="font-size:14pt;">palette</i>
+          <i class="material-icons" style="margin-left:20px;font-size:14pt;">photo</i>
+          <i class="material-icons" style="margin-left:20px;font-size:14pt;">delete</i>
+        </div>
+
+        <!-- end of card view -->
+      </div>
+
+      <!-- second card -->
+      <div class="card card-1 ">
+        <!-- first level -->
+        <!-- <img src="./cat.jpg" class="card_img" /> -->
+        <div class="card_title">
+          Title
+        </div>
+        <div class="card_content">
+          This is content
+        </div>
+
+        <div class="card_option">
+          <i class="material-icons" style="font-size:14pt;">palette</i>
+          <i class="material-icons" style="margin-left:20px;font-size:14pt;">photo</i>
+          <i class="material-icons" style="margin-left:20px;font-size:14pt;">delete</i>
+        </div>
+
+        <!-- end of card view -->
+      </div>
+
+      <!-- second card -->
+      <div class="card card-1 " style="background:#CFD8DC;">
+        <!-- first level -->
+        <!-- <img src="./cat.jpg" class="card_img" /> -->
+        <div class="card_title">
+          Homework
+        </div>
+        <div class="card_content">
+          Quick fox jump over a lazy doge. London bridge is falling down. My fair lady~
+        </div>
+
+        <div class="card_option">
+          <i class="material-icons" style="font-size:14pt;">palette</i>
+          <i class="material-icons" style="margin-left:20px;font-size:14pt;">photo</i>
+          <i class="material-icons" style="margin-left:20px;font-size:14pt;">delete</i>
+        </div>
+
+        <!-- end of card view -->
+      </div>
+
+      <!-- end of card pane -->
+    </div>
+
+    <!-- end of outer div -->
+  </div>
+</body>
+<script src="./list.js"></script>
+
+<script>
+  function addCards(list_name) {
+
+    // clear innerHTML for card pane
+    card_pane.innerHTML = '';
+
+    for (var i = 0; i < list_name.length; i++) {
+      var cur_i = my_dict[list_name[i]]
+      var cur_obj = object_list[cur_i];
+
+      // add through list of object
+      var name = cur_obj.caption;
+      var keywords_cur = cur_obj.tag;
+      var cur_img = cur_obj.img;
+
+      // kept just for consistant look in UI. not needed for this assignment
+      var url = url_list[cur_i];
+      var category = category_list[cur_i];
+
+      var add_html =
+        '<div class="card card-1 ripplelink"> <!-- first level --> <img class="circular"/ src="site_img"> <span class="caption">site_name</span> <br /> <!-- end of first level --> <!-- second level --> <div class="url" > site_url </div> <div class="category"> site_cate </div> <br /><br /> <!-- end of second level --> <!-- third level --> <div class="keywords"> site_keywords </div> <!-- end of card view --> </div>'
+        // console.log('keywords_cur : ' + keywords_cur);
+
+      // parse add html with replace
+      // need a better way to handle this...
+      $("#card_pane").fadeIn(1500);
+
+      add_html = add_html.replace('site_name', name).replace('site_url', url).replace('site_cate', category).replace('site_keywords', keywords_cur).replace('site_img', cur_img);
+
+      card_pane.innerHTML += add_html;
+    }
+  }
+
+  // init site with all pages.
+  // addCards(site_name);
+
+  // dictionary for all strings for a site
+</script>
+
+<!-- ripple effect -->
+<script type="text/javascript">
+  /*jQuery*/
+
+  $(function() {
+    var ink, d, x, y;
+    $(".ripplelink").click(function(e) {
+      if ($(this).find(".ink").length === 0) {
+        $(this).prepend("<span class='ink'></span>");
+      }
+
+      ink = $(this).find(".ink");
+      ink.removeClass("animate");
+
+      if (!ink.height() && !ink.width()) {
+        d = Math.max($(this).outerWidth(), $(this).outerHeight());
+        ink.css({
+          height: d,
+          width: d
+        });
+      }
+
+      x = e.pageX - $(this).offset().left - ink.width() / 2;
+      y = e.pageY - $(this).offset().top - ink.height() / 2;
+
+      // center the effect
+      // x = e.pageX - $(this).left - ink.width()/2;
+      // y = e.pageY - $(this).top - ink.height()/2;
+
+      ink.css({
+        top: y + 'px',
+        left: x + 'px'
+      }).addClass("animate");
+    });
+  });
+  // end of
+</script>
+
+
+</html>
