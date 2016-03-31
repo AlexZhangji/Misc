@@ -14,16 +14,17 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700,400' rel='stylesheet' type='text/css'>
 
-
-
+  <!-- JQuery -->
   <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
-  <title>A8</title>
+
+  <title>Google Keep Ripoff</title>
 </head>
 
 <body>
   <div id="strip">
     <i class="material-icons" style="color:#8B6600; float:left; margin-left:14px;">list</i> <span style="float:left; margin-left:24px;">Note</span> <img src='./symbol.png' / style="float:right">
   </div>
+
 
   <div id="container">
 
@@ -37,7 +38,7 @@
       <!-- </form>  -->
     </div>
 
-    <div id="card_pane">
+    <div id='card_pane'>
 
       <div class="card card-1" style="background:#FFD180;">
         <!-- first level -->
@@ -106,6 +107,7 @@
 </body>
 <script src="./list.js"></script>
 
+
 <script>
   function addCards(list_name) {
 
@@ -143,44 +145,6 @@
   // addCards(site_name);
 
   // dictionary for all strings for a site
-</script>
-
-<!-- ripple effect -->
-<script type="text/javascript">
-  /*jQuery*/
-
-  $(function() {
-    var ink, d, x, y;
-    $(".ripplelink").click(function(e) {
-      if ($(this).find(".ink").length === 0) {
-        $(this).prepend("<span class='ink'></span>");
-      }
-
-      ink = $(this).find(".ink");
-      ink.removeClass("animate");
-
-      if (!ink.height() && !ink.width()) {
-        d = Math.max($(this).outerWidth(), $(this).outerHeight());
-        ink.css({
-          height: d,
-          width: d
-        });
-      }
-
-      x = e.pageX - $(this).offset().left - ink.width() / 2;
-      y = e.pageY - $(this).offset().top - ink.height() / 2;
-
-      // center the effect
-      // x = e.pageX - $(this).left - ink.width()/2;
-      // y = e.pageY - $(this).top - ink.height()/2;
-
-      ink.css({
-        top: y + 'px',
-        left: x + 'px'
-      }).addClass("animate");
-    });
-  });
-  // end of
 </script>
 
 

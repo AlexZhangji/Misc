@@ -82,6 +82,10 @@ body {
    transition: opacity .5s ease-in-out .0s;
 }
 
+.card:hover{
+  opacity: .93;
+}
+
 .card_content{
   font-size: 20pt;
   font-family: 'Roboto Slab', serif;
