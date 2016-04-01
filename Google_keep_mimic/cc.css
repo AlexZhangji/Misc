@@ -1,20 +1,16 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto);
-@import url(https://fonts.googleapis.com/css?family=Quicksand);
-@import url(https://fonts.googleapis.com/css?family=Raleway);
-@import url(https://fonts.googleapis.com/css?family=Poiret+One);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100);
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:700,400);
 
-* {
+/** {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}
+}*/
+
+
 body {
   font-family: Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
   /*background: #eeeded;*/
   background: #E8E8E8;
-
+  margin: 0;
   /*why?*/
   color: rgba(0,0,0,.87);
 }
@@ -26,11 +22,17 @@ body {
 
 #strip{
   background:#ffbb00;
-  height: 45px;
+  height: 30px;
   position: relative;
-  padding: 10px;
+  padding: 5px;
   font-size: 12pt;
+  width: auto;
+}
 
+
+
+.strip .material-icons{
+  color: rgba(0,0,0,.54);
 }
 
 #search_pane{
@@ -39,6 +41,8 @@ body {
   margin-bottom: 30px;
 
 }
+
+
 
 #card_pane{
   /*margin-left: 10%;*/
@@ -84,6 +88,10 @@ body {
   opacity: 1;
   -webkit-transition: opacity .5s ease-in-out .0s;
    transition: opacity .5s ease-in-out .0s;
+}
+
+.card:hover{
+  opacity: .93;
 }
 
 .card_content{
@@ -146,7 +154,7 @@ body {
   text-align: center;
   font-weight: bold;
   opacity: 0.7;
-  font-family: 'Quicksand', sans-serif;
+  /*font-family: 'Quicksand', sans-serif;*/
   font-size: 18pt;
   border-radius: 150px;
   -webkit-border-radius: 150px;
