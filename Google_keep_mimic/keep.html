@@ -10,9 +10,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:700,400' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,100" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700,400" rel="stylesheet" type="text/css">
 
   <!-- JQuery -->
   <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
@@ -22,33 +22,27 @@
 
 <body>
   <div id="strip">
-<<<<<<< HEAD
-    <i class="material-icons" style="color:#8B6600; float:left; margin-left:14px;">list</i>
-    <span style="float:left; margin-left:24px;">Note</span>
-    <img src='./symbol.png' / style="float:right">
-=======
     <i class="material-icons" style=" float:left; margin-left:14px;color: rgba(0,0,0,.54);">list</i>
     <span style="float:left; margin-left:24px;margin-top:3px;color: rgba(0,0,0,.54);">Note</span>
     <i class="material-icons" style=" float:right; margin-right:74px; font-size:14pt;margin-top:3px;color: rgba(0,0,0,.54);">replay</i>
->>>>>>> origin/master
   </div>
 
 
   <div id="container">
 
 
-    <div id='search_pane'>
+    <div id="search_pane">
       <!-- <form> -->
       <!-- <h1>Show relevant sites for given input:</h1> -->
       <input id="input_search" placeholder="Keywords" type="text" required="">
       <br>
-      <button onclick="search();">Submit</button>
+      <button id= "gravity_btn">Submit</button>
       <!-- </form>  -->
     </div>
 
-    <div id='card_pane'>
+    <div id="card_pane">
 
-      <div class="card card-1" style="background:#FFD180;">
+      <div class="card card-1 gravity" style="background:#FFD180;">
         <!-- first level -->
         <img src="./cat.jpg" class="card_img" />
         <div class="card_title">
@@ -68,7 +62,7 @@
       </div>
 
       <!-- second card -->
-      <div class="card card-1 ">
+      <div class="card card-1 gravity">
         <!-- first level -->
         <!-- <img src="./cat.jpg" class="card_img" /> -->
         <div class="card_title">
@@ -88,7 +82,7 @@
       </div>
 
       <!-- second card -->
-      <div class="card card-1 " style="background:#CFD8DC;">
+      <div class="card card-1 gravity" style="background:#CFD8DC;">
         <!-- first level -->
         <!-- <img src="./cat.jpg" class="card_img" /> -->
         <div class="card_title">
@@ -113,47 +107,11 @@
     <!-- end of outer div -->
   </div>
 </body>
-<script src="./list.js"></script>
 
-
-<script>
-  function addCards(list_name) {
-
-    // clear innerHTML for card pane
-    card_pane.innerHTML = '';
-
-    for (var i = 0; i < list_name.length; i++) {
-      var cur_i = my_dict[list_name[i]]
-      var cur_obj = object_list[cur_i];
-
-      // add through list of object
-      var name = cur_obj.caption;
-      var keywords_cur = cur_obj.tag;
-      var cur_img = cur_obj.img;
-
-      // kept just for consistant look in UI. not needed for this assignment
-      var url = url_list[cur_i];
-      var category = category_list[cur_i];
-
-      var add_html =
-        '<div class="card card-1 ripplelink"> <!-- first level --> <img class="circular"/ src="site_img"> <span class="caption">site_name</span> <br /> <!-- end of first level --> <!-- second level --> <div class="url" > site_url </div> <div class="category"> site_cate </div> <br /><br /> <!-- end of second level --> <!-- third level --> <div class="keywords"> site_keywords </div> <!-- end of card view --> </div>'
-        // console.log('keywords_cur : ' + keywords_cur);
-
-      // parse add html with replace
-      // need a better way to handle this...
-      $("#card_pane").fadeIn(1500);
-
-      add_html = add_html.replace('site_name', name).replace('site_url', url).replace('site_cate', category).replace('site_keywords', keywords_cur).replace('site_img', cur_img);
-
-      card_pane.innerHTML += add_html;
-    }
-  }
-
-  // init site with all pages.
-  // addCards(site_name);
-
-  // dictionary for all strings for a site
-</script>
+<script src="./drag/drag.js"></script>
+<script src="./drag/jGravity.js"></script>
+<script src="./drag/jquery-ui.js"></script>
+<script src="./drag/isotope.pkgd.min.js"></script>
 
 
 </html>
