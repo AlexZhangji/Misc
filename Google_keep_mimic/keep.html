@@ -66,19 +66,19 @@
           <i class="material-icons" style="margin-left:20px;font-size:14pt;" title="Photo">photo</i>
           <i class="material-icons" style="margin-left:20px;font-size:14pt;" title="Delete">delete</i>
         </div>
-      </br>
-      </br>
+        </br>
+        </br>
 
         <div class="color_picker_card card-1">
           <div style="margin-left:7px;">
-          <div class="color_img_circle white_color_icon" style="background:#FAFAFA;" > </div>
-          <div class="color_img_circle" style="background:#FF8A80;"> </div>
-          <div class="color_img_circle" style="background:#FFD180;"> </div>
-          <div class="color_img_circle" style="background:#FFFF8D;"> </div>
-          <div class="color_img_circle" style="background:#CFD8DC;"> </div>
-          <div class="color_img_circle" style="background:#80D8FF;"> </div>
-          <div class="color_img_circle" style="background:#A7FFEB;"> </div>
-          <div class="color_img_circle" style="background:#CCFF90;"> </div>
+            <div class="color_img_circle white_color_icon" style="background:#FAFAFA;"><i class="material-icons done_icon" style="font-size:13pt;">done</i> </div>
+            <div class="color_img_circle" style="background:#FF8A80;"> <i class="material-icons done_icon" style="font-size:13pt;">done</i></div>
+            <div class="color_img_circle" style="background:#FFD180;"> <i class="material-icons done_icon" style="font-size:13pt;">done</i></div>
+            <div class="color_img_circle" style="background:#FFFF8D;"> <i class="material-icons done_icon" style="font-size:13pt;">done</i></div>
+            <div class="color_img_circle" style="background:#CFD8DC;"> <i class="material-icons done_icon" style="font-size:13pt;">done</i></div>
+            <div class="color_img_circle" style="background:#80D8FF;"> <i class="material-icons done_icon" style="font-size:13pt;">done</i></div>
+            <div class="color_img_circle" style="background:#A7FFEB;"> <i class="material-icons done_icon" style="font-size:13pt;">done</i></div>
+            <div class="color_img_circle" style="background:#CCFF90;"> <i class="material-icons done_icon" style="font-size:13pt;">done</i></div>
           </div>
         </div>
         <!-- end of card view -->
@@ -137,6 +137,29 @@
 <script src="./drag/jquery-ui.js"></script>
 <script src="./drag/isotope.pkgd.min.js"></script>
 
+<script>
+  // color picker
+  $(function() {
+    $(".color_img_circle").click(function() {
+      var selected_color = $(this).css('background');
+      // console.log( $(this) + "\n color:" + selected_color);
+
+      // set color
+      $(this).parent().parent().parent().css('background', selected_color);
+
+      // clear done icon
+      var list = $(this).siblings();
+      for (var i = 0; i < list.length; i++) {
+        list[i].children[0].style.visibility = 'hidden';
+      }
+
+      // and set new one
+      $(this).children().css('visibility','visible');
+      $(this).children().css('font-size','10pt;');
+
+    });
+  });
+</script>
 
 
 
