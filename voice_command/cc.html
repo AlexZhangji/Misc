@@ -8,150 +8,165 @@
 </head>
 
 <style type="text/css">
-	#wild_img{
-		/*width: 100%;*/
-		max-width: 400px;
-  position: fixed;
-  z-index: 1000;
-  bottom: -500px;
-  right: 10px;
-  -webkit-transform: rotate(-15deg);
-     -moz-transform: rotate(-15deg);
-      -ms-transform: rotate(-15deg);
-       -o-transform: rotate(-15deg);
-          transform: rotate(-15deg);
-  -webkit-box-shadow: 2px 1px 6px 1px #555;
-          box-shadow: 2px 1px 6px 1px #555;
-}
-
+  #wild_img {
+    /*width: 100%;*/
+    max-width: 400px;
+    position: fixed;
+    z-index: 1000;
+    bottom: -500px;
+    right: 10px;
+    -webkit-transform: rotate(-15deg);
+    -moz-transform: rotate(-15deg);
+    -ms-transform: rotate(-15deg);
+    -o-transform: rotate(-15deg);
+    transform: rotate(-15deg);
+    -webkit-box-shadow: 2px 1px 6px 1px #555;
+    box-shadow: 2px 1px 6px 1px #555;
+  }
 </style>
 
 <body>
 
-   <div id="container">
+  <div id="container">
 
-         <div id="inner">
-            <div class="gravity win" id="div1"></div>
-            <div class="gravity open" id="div2"></div>
-            <div class="gravity android" id="div3"></div>
-            <div class="gravity ios" id="div4"></div>
-            <div class="gravity open" id="div5"></div>
-            <div class="gravity open" id="div6"></div>
-            <div class="gravity client" id="div7"></div>
-            <div class="gravity client" id="div8"></div>
-            <div class="gravity client" id="div9"></div>
-            <div class="gravity client" id="div10"></div>
-            <div class="gravity client" id="div11"></div>
-            <div class="gravity client" id="div12"></div>
-        </div>
+    <div id="inner">
+      <div class="card gravity img_card">
+        <img src="./cat.jpg" />
+      </div>
+      <div class="card gravity music_card"></div>
+
     </div>
+  </div>
 
-    <img src="./cat.jpg" id="wild_img" class="hidden">
+  <img src="./cat.jpg" id="wild_img" class="hidden">
 
 
 
-  <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+  <!-- <script src="http://code.jquery.com/jquery-1.12.0.js"></script> -->
+  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.3.0/annyang.min.js"></script> -->
+
+  <script src="./jquery-1.12.0.js"></script>
   <script src="./drag.js"></script>
   <script src="./jGravity.js"></script>
   <script src="./jquery-ui.js"></script>
   <script src="./isotope.pkgd.min.js"></script>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.3.0/annyang.min.js"></script>
-
-
-<script>
-if (annyang) {
-  // Let's define a command.
-  var commands = {
-    'hello': function() { alert('Hello world!'); },
-     'show me *tag': showImages,
-     'falling down':fall,
-     'restore':restore,
-     'Avada Kedavra':nono,
-     'test':function(){alert('Test!');},
-  };
-
-  // Add our commands to annyang
-  annyang.addCommands(commands);
-
-  // Start listening.
-  annyang.start();
-}
+  <script src="./annyang.js"></script>
 
 
-function nono(){
-	alert('Nono, bad! bad !');
-}
+  <script>
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'hello': function() {
+          alert('Hello world!');
+        },
+        'show me *tag': showImages,
+        'falling down': fall,
+        'restore': restore,
+        'Avada Kedavra': nono,
+        'test': function() {
+          alert('Test!');
+        },
+      };
 
-function restore(){
-	console.log('restored');
+      // Add our commands to annyang
+      annyang.addCommands(commands);
 
-	$("#inner").sortable('enable');
-            $("#inner").css({ 'top': '50px', 'left': '0px', 'width': '350px', 'height': '500px' });
-            runs = "stop";
-            $('#bar').show(300);
-            $(".steady").animate({
-                left: '360px'
-            }, 300);
+      // Start listening.
+      annyang.start();
+    }
 
 
-	$('#inner').isotope({filter:'.gravity'});
-  }
+    function nono() {
+      alert('Nono, bad! bad !');
+    }
+
+    function restore() {
+      console.log('restored');
+
+      $("#inner").sortable('enable');
+      $("#inner").css({
+        'top': '50px',
+        'left': '0px',
+        'width': '350px',
+        'height': '500px'
+      });
+      runs = "stop";
+      $('#bar').show(300);
+      $(".steady").animate({
+        left: '360px'
+      }, 300);
 
 
-function showImages(ss){
-  // alert(ss)
-  console.log(ss);
+      $('#inner').isotope({
+        filter: '.gravity'
+      });
+    }
 
-  if(ss.indexOf('cat')!= 0){
-  	$('#wild_img').animate({bottom: '-20px'});
-  }else{
-  	alert('show me ' + ss);
-  }
-}
 
-function fall(){
+    function showImages(ss) {
+      // alert(ss)
+      console.log(ss);
+
+      if (ss.indexOf('cat') != 0) {
+        $('#wild_img').animate({
+          bottom: '-20px'
+        });
+      } else {
+        alert('show me ' + ss);
+      }
+    }
+
+    function fall() {
+      console.log('fall');
+      $("#inner").sortable('disable');
+      $("#inner").css({
+        'top': '0px',
+        'left': '0px',
+        'width': 'initial',
+        'height': 'initial'
+      });
+      runs = "start";
+      $('#inner').jGravity({
+        target: 'div.gravity',
+        ignoreClass: 'div.steady',
+        weight: 10,
+        depth: 5,
+        drag: true
+      });
+      $(this).hide(300);
+      $(".steady").animate({
+        left: '0px'
+      }, 300);
+    }
+  </script>
+
+  <script type="text/javascript">
+    $(function() {
+      function fall() {
         console.log('fall');
-            $("#inner").sortable('disable');
-            $("#inner").css({ 'top': '0px', 'left': '0px', 'width': 'initial', 'height': 'initial' });
-            runs = "start";
-            $('#inner').jGravity({
-                target: 'div.gravity', 
-                ignoreClass: 'div.steady', 
-                weight: 10, 
-                depth: 5, 
-                drag: true 
-            });
-            $(this).hide(300);
-            $(".steady").animate({
-                left:'0px'
-            },300);
-        }
-
-</script>
-
-<script type="text/javascript">
-  $(function(){
-      function fall(){
-        console.log('fall');
-            $("#inner").sortable('disable');
-            $("#inner").css({ 'top': '0px', 'left': '0px', 'width': 'initial', 'height': 'initial' });
-            runs = "start";
-            $('#inner').jGravity({
-                target: 'div.gravity', 
-                ignoreClass: 'div.steady', 
-                weight: 10, 
-                depth: 5, 
-                drag: true 
-            });
-            $(this).hide(300);
-            $(".steady").animate({
-                left:'0px'
-            },300);
-        }
-  });
-
-</script>>
+        $("#inner").sortable('disable');
+        $("#inner").css({
+          'top': '0px',
+          'left': '0px',
+          'width': 'initial',
+          'height': 'initial'
+        });
+        runs = "start";
+        $('#inner').jGravity({
+          target: 'div.gravity',
+          ignoreClass: 'div.steady',
+          weight: 10,
+          depth: 5,
+          drag: true
+        });
+        $(this).hide(300);
+        $(".steady").animate({
+          left: '0px'
+        }, 300);
+      }
+    });
+  </script>
 
 </body>
 

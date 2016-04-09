@@ -1,245 +1,33 @@
-body
-    {
-        height:3000px;
+body {
+  height: 3000px;
+}
+.gravity {
+  margin: 5px;
+}
+#container {
+  /*position: fixed;*/
 
-    }
+}
+.card {
+  margin: 5px;
+  background-size: 100%;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0px 0px 5px 1px black;
+}
 
-    .gravity
-    {
-        margin:5px;
-    }
-    #container
-    {
-        position:fixed;
-    }
-#div1{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:50px;
-    left:0px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi59.tinypic.com/23sf6fl.jpg');
-    box-shadow:0px 0px 5px 1px black;
+.card:hover{
+  box-shadow: 0px 0px 5px 1px black;
 }
-#div2{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:50px;
-    left:110px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi58.tinypic.com/11c63us.jpg');
-    box-shadow:0px 0px 5px 1px black;
+
+.card img{
+  width: 100%;
 }
-#div3{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:50px;
-    left:220px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi58.tinypic.com/256qulz.jpg');
-    box-shadow:0px 0px 5px 1px black;
+
+
+#inner {
+  margin: auto;
+  margin-top: 100px;
+  height: 500px;
+  width: 550px;
 }
-#div4{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:160px;
-    left:0px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi59.tinypic.com/2wgvshw.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div5{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:160px;
-    left:110px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi62.tinypic.com/2vjyd78.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div6{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:160px;
-    left:220px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi58.tinypic.com/dokkyo.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div7{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:270px;
-    left:0px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi62.tinypic.com/searsk.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div8{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:270px;
-    left:110px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi61.tinypic.com/k985tg.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div9{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:270px;
-    left:220px;
-    width:100px;
-    height:100px;
-    background-color:white;
-    background-image:url('http://oi62.tinypic.com/2wod9cg.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div10{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:380px;
-    left:0px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi57.tinypic.com/33u73as.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div11{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:380px;
-    left:110px;
-    width:100px;
-    height:100px;
-    background-color:white;
-    background-image:url('http://oi58.tinypic.com/2qi0hgl.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#div12{
-    margin:5px;
-    position:absolute;
-    background-size:100%;
-    top:380px;
-    left:220px;
-    width:100px;
-    height:100px;
-    background-image:url('http://oi61.tinypic.com/rh2ttx.jpg');
-    box-shadow:0px 0px 5px 1px black;
-}
-#bar{
-    position:absolute;
-    background-size:100%;
-    width:150px;
-    height:35px;
-    top:0px;
-    left:0px;
-    background-repeat:no-repeat;
-    background-image:url('http://oi58.tinypic.com/14vmskl.jpg');
-    box-shadow:0px 0px 2px 1px black;
-}
-    #bar:hover
-    {
-    box-shadow:0px 0px 5px 1px black;
-    }
-#btn1{
-    position:absolute;
-    background-size:100%;
-    width:80px;
-    height:35px;
-    top:50px;
-    left:360px;
-    background-repeat:no-repeat;
-    background-image:url('http://oi60.tinypic.com/2v9um52.jpg');
-    box-shadow:0px 0px 2px 1px black;
-}
-    #btn1:hover
-    {
-    box-shadow:0px 0px 5px 1px black;
-    }
-#btn2{
-    position:absolute;
-    background-size:100%;
-    width:80px;
-    height:35px;
-    top:90px;
-    left:360px;
-    background-repeat:no-repeat;
-    background-image:url('http://oi62.tinypic.com/2zi3793.jpg');
-    box-shadow:0px 0px 2px 1px black;
-}
-    #btn2:hover
-    {
-    box-shadow:0px 0px 5px 1px black;
-    }
-#btn3{
-    position:absolute;
-    background-size:100%;
-    width:80px;
-    height:35px;
-    top:130px;
-    left:360px;
-    background-repeat:no-repeat;
-    background-image:url('http://oi62.tinypic.com/14o7sc6.jpg');
-    box-shadow:0px 0px 2px 1px black;
-}
-    #btn3:hover
-    {
-    box-shadow:0px 0px 5px 1px black;
-    }
-#btn4{
-    position:absolute;
-    background-size:100%;
-    width:80px;
-    height:35px;
-    top:170px;
-    left:360px;
-    background-repeat:no-repeat;
-    background-image:url('http://oi62.tinypic.com/e8agsg.jpg');
-    box-shadow:0px 0px 2px 1px black;
-}
-    #btn4:hover
-    {
-    box-shadow:0px 0px 5px 1px black;
-    }
-#btn5{
-    position:absolute;
-    background-size:100%;
-    width:80px;
-    height:35px;
-    top:210px;
-    left:360px;
-    background-repeat:no-repeat;
-    background-image:url('http://oi59.tinypic.com/25ewr61.jpg');
-    box-shadow:0px 0px 2px 1px black;
-}
-    #btn5:hover
-    {
-    box-shadow:0px 0px 5px 1px black;
-    }
-    #inner
-    {
-        top:50px;
-        left:0px;
-        height:500px;
-        width:350px;
-    }
