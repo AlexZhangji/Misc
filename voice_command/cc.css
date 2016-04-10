@@ -1,33 +1,94 @@
 body {
   height: 3000px;
+  background: #E8E8E8;
+  color: rgba(0, 0, 0, .87);
 }
 .gravity {
   margin: 5px;
 }
 #container {
-  /*position: fixed;*/
-
+  position: fixed;
 }
 .card {
-  margin: 5px;
+  position: relative;;
+  margin: 15px;
   background-size: 100%;
   width: 150px;
   height: 150px;
-  box-shadow: 0px 0px 5px 1px black;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background: #fff;
 }
-
-.card:hover{
-  box-shadow: 0px 0px 5px 1px black;
+.card:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
-
-.card img{
+.card img {
   width: 100%;
+  height: 100%;
 }
-
-
 #inner {
   margin: auto;
   margin-top: 100px;
   height: 500px;
-  width: 550px;
+  width: 930px;
+}
+
+/*circular view*/
+
+.music_card {
+  margin: 10px;
+  width: 150px;
+  height: 150px;
+  border-radius: 160px;
+  -webkit-border-radius: 160px;
+  -moz-border-radius: 160px;
+  border: 3px solid #FFF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+  /*background: url(./img/disc_base.svg) no-repeat center;*/
+  background-image: url(./img/cat_2.jpg);
+  -webkit-mask: url(./img/disc_mask.svg) no-repeat center;
+  background-size: 150px;
+  /*rotating*/
+  -webkit-animation: rotation 15s infinite linear;
+}
+#wild_img {
+  /*width: 100%;*/
+  max-width: 400px;
+  position: fixed;
+  z-index: 1000;
+  bottom: -500px;
+  right: 10px;
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-box-shadow: 2px 1px 6px 1px #555;
+  box-shadow: 2px 1px 6px 1px #555;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+#test_console {
+  margin: auto;
+  text-align: center;
+  /*visibility: hidden;*/
+}
+.test_button {
+  font-weight: bold;
+  margin: auto;
+  width: 200px;
+  height: 60px;
+  background: #777;
+  padding: 10px;
+}
+.console_btn {
+  margin-top: 5px;
+  width: 100px;
 }

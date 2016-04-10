@@ -7,51 +7,57 @@
   <title>Test</title>
 </head>
 
-<style type="text/css">
-  #wild_img {
-    /*width: 100%;*/
-    max-width: 400px;
-    position: fixed;
-    z-index: 1000;
-    bottom: -500px;
-    right: 10px;
-    -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    -ms-transform: rotate(-15deg);
-    -o-transform: rotate(-15deg);
-    transform: rotate(-15deg);
-    -webkit-box-shadow: 2px 1px 6px 1px #555;
-    box-shadow: 2px 1px 6px 1px #555;
-  }
-</style>
-
 <body>
 
   <div id="container">
 
-    <div id="inner">
-      <div class="card gravity img_card">
-        <img src="./cat.jpg" />
+    <div id="test_console">
+      <div class="test_button">
+        Add img card
+        <input id="img_card_input" />
+        <br/>
+        <button id="add_img_card" class="console_btn">
+          Add
+        </button>
       </div>
-      <div class="card gravity music_card"></div>
 
     </div>
+
+    <div id="inner">
+
+      <!-- img_card -->
+      <div class="card gravity img_card">
+        <img src="./img/cat.jpg" />
+      </div>
+      <!-- end of img card -->
+
+      <!-- music card -->
+      <div class="card gravity music_card">
+        <!-- maybe put a play button here-->
+        <img />
+      </div>
+      <!-- end of music card -->
+
+      <div class="card gravity img_card">
+        <img src="https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ.png" />
+      </div>
+
+    </div>
+
+    <img src="./img/cat.jpg" id="wild_img" class="hidden">
+
   </div>
-
-  <img src="./cat.jpg" id="wild_img" class="hidden">
-
-
 
   <!-- <script src="http://code.jquery.com/jquery-1.12.0.js"></script> -->
   <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.3.0/annyang.min.js"></script> -->
-
-  <script src="./jquery-1.12.0.js"></script>
-  <script src="./drag.js"></script>
-  <script src="./jGravity.js"></script>
-  <script src="./jquery-ui.js"></script>
-  <script src="./isotope.pkgd.min.js"></script>
-  <script src="./annyang.js"></script>
-
+  <script src="./js/jquery-1.12.0.js"></script>
+  <script src="./js/drag.js"></script>
+  <script src="./js/jGravity.js"></script>
+  <script src="./js/jquery-ui.js"></script>
+  <script src="./js/isotope.pkgd.min.js"></script>
+  <script src="./js/annyang.js"></script>
+  <script src="./key-press.js"></script>
+  <script src="./helper.js"></script>
 
   <script>
     if (annyang) {
