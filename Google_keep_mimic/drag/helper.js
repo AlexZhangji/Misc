@@ -15,7 +15,9 @@ $(document).ready(function() {
   // disk appear
   $('#btn2').click(function() {
     $('#wild_img').animate({
-      bottom: '-70px'
+      // bottom: '00px'
+      top: '100px',
+      right: '100px',
     });
   });
 

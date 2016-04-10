@@ -18,7 +18,7 @@
   border: 3px solid #FFF;
   box-shadow: 0 0 5px rgba(0, 0, 0, .8);
 
-  background-image: url(./img/cat_2.jpg);
+  background-image: url(./img/b.jpg);
   /*background: url(./img/disc_base.svg) no-repeat center;*/
 
   -webkit-mask: url(./img/disc_mask.svg) no-repeat center;
@@ -42,8 +42,8 @@
   max-width: 400px;
   position: fixed;
   z-index: 1000;
-  bottom: -500px;
-  right: -70px;
+  top: -300px;
+  right: -200px;
   -webkit-transform: rotate(-15deg);
   -moz-transform: rotate(-15deg);
   -ms-transform: rotate(-15deg);
