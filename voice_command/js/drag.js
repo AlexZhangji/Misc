@@ -39,35 +39,13 @@ $(document).ready(function() {
     }
   });
 
-  $('#bar').click(function() {
-    $("#inner").sortable('disable');
-    $("#inner").css({
-      'top': '0px',
-      'left': '0px',
-      'width': 'initial',
-      'height': 'initial'
-    });
-    runs = "start";
-    $('#inner').jGravity({
-      target: 'div.gravity',
-      ignoreClass: 'div.steady',
-      weight: 10,
-      depth: 5,
-      drag: true
-    });
-    $(this).hide(300);
-    $(".steady").animate({
-      left: '0px'
-    }, 300);
-  });
-
 
   function abortNewton() {
     $("#inner").sortable('enable');
     $("#inner").css({
-      'top': '50px',
+      'top': '100px',
       'left': '0px',
-      'width': '350px',
+      'width': '550px',
       'height': '500px'
     });
     runs = "stop";

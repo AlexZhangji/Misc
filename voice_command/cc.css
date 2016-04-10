@@ -4,40 +4,55 @@ body {
   color: rgba(0, 0, 0, .87);
 }
 .gravity {
-  margin: 5px;
+  margin: 10px;
 }
 #container {
   position: fixed;
 }
 .card {
-  position: relative;;
-  margin: 15px;
+  position: absolute;
+  margin: 10px;
   background-size: 100%;
-  width: 150px;
-  height: 150px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   background: #fff;
+  /*margin-left: 10px;*/
+  width: 150px;
+  height: 150px;
 }
 .card:hover {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 2px 3px rgba(0, 0, 0, 0.24);
 }
 .card img {
   width: 100%;
   height: 100%;
 }
 #inner {
-  margin: auto;
-  margin-top: 100px;
+  top: 100px;
+  left: 0px;
+  /*margin: auto;*/
+  /*margin-top: 100px;*/
   height: 500px;
-  width: 930px;
+  width: 550px;
+}
+#box_1 {
+  top: 100px;
+  left: 0px;
+}
+#box_2 {
+  top: 100px;
+  left: 170px;
+}
+#box_3 {
+  top: 100px;
+  left: 330px;
 }
 
 /*circular view*/
 
+.img_card {
+
+}
 .music_card {
-  margin: 10px;
-  width: 150px;
-  height: 150px;
   border-radius: 160px;
   -webkit-border-radius: 160px;
   -moz-border-radius: 160px;
@@ -84,9 +99,10 @@ body {
   font-weight: bold;
   margin: auto;
   width: 200px;
-  height: 60px;
+  height: 70px;
   background: #777;
   padding: 10px;
+  border-radius: 10px;
 }
 .console_btn {
   margin-top: 5px;

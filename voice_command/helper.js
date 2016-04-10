@@ -7,7 +7,6 @@ function add_Cards(input, type) {
   } else if (type === 'song') {
 
   }
-
   // sort after add
   // $('#inner').isotope('reLayout');
 

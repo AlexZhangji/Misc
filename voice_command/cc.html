@@ -12,7 +12,7 @@
   <div id="container">
 
     <div id="test_console">
-      <div class="test_button">
+      <div class="test_button ">
         Add img card
         <input id="img_card_input" />
         <br/>
@@ -26,25 +26,25 @@
     <div id="inner">
 
       <!-- img_card -->
-      <div class="card gravity img_card">
+      <div class="card gravity img_card" id="box_1">
         <img src="./img/cat.jpg" />
       </div>
       <!-- end of img card -->
 
-      <!-- music card -->
-      <div class="card gravity music_card">
-        <!-- maybe put a play button here-->
-        <img />
-      </div>
-      <!-- end of music card -->
-
-      <div class="card gravity img_card">
+      <div class="card gravity img_card" id="box_2" >
         <img src="https://pbs.twimg.com/profile_images/616309728688238592/pBeeJQDQ.png" />
       </div>
 
+      <!-- music card -->
+      <div class="card gravity music_card" id="box_3">
+        <!-- maybe put a play button here-->
+        <!-- <img /> -->
+      </div>
+      <!-- end of music card -->
+
     </div>
 
-    <img src="./img/cat.jpg" id="wild_img" class="hidden">
+    
 
   </div>
 
@@ -81,98 +81,8 @@
       // Start listening.
       annyang.start();
     }
+</script>
 
-
-    function nono() {
-      alert('Nono, bad! bad !');
-    }
-
-    function restore() {
-      console.log('restored');
-
-      $("#inner").sortable('enable');
-      $("#inner").css({
-        'top': '50px',
-        'left': '0px',
-        'width': '350px',
-        'height': '500px'
-      });
-      runs = "stop";
-      $('#bar').show(300);
-      $(".steady").animate({
-        left: '360px'
-      }, 300);
-
-
-      $('#inner').isotope({
-        filter: '.gravity'
-      });
-    }
-
-
-    function showImages(ss) {
-      // alert(ss)
-      console.log(ss);
-
-      if (ss.indexOf('cat') != 0) {
-        $('#wild_img').animate({
-          bottom: '-20px'
-        });
-      } else {
-        alert('show me ' + ss);
-      }
-    }
-
-    function fall() {
-      console.log('fall');
-      $("#inner").sortable('disable');
-      $("#inner").css({
-        'top': '0px',
-        'left': '0px',
-        'width': 'initial',
-        'height': 'initial'
-      });
-      runs = "start";
-      $('#inner').jGravity({
-        target: 'div.gravity',
-        ignoreClass: 'div.steady',
-        weight: 10,
-        depth: 5,
-        drag: true
-      });
-      $(this).hide(300);
-      $(".steady").animate({
-        left: '0px'
-      }, 300);
-    }
-  </script>
-
-  <script type="text/javascript">
-    $(function() {
-      function fall() {
-        console.log('fall');
-        $("#inner").sortable('disable');
-        $("#inner").css({
-          'top': '0px',
-          'left': '0px',
-          'width': 'initial',
-          'height': 'initial'
-        });
-        runs = "start";
-        $('#inner').jGravity({
-          target: 'div.gravity',
-          ignoreClass: 'div.steady',
-          weight: 10,
-          depth: 5,
-          drag: true
-        });
-        $(this).hide(300);
-        $(".steady").animate({
-          left: '0px'
-        }, 300);
-      }
-    });
-  </script>
 
 </body>
 

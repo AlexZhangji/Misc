@@ -36,6 +36,9 @@ $(document).ready(function() {
           sortBy: 'original-order',
           transformsEnabled: false
         });
+
+      $('#inner').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+
     }
   });
   $('#bar').click(function() {
@@ -59,49 +62,28 @@ $(document).ready(function() {
       left: '0px'
     }, 300);
   });
-  $('#btn1').click(function() {
-    abortNewton();
-    $('#inner').isotope({
-      filter: '.gravity'
-    });
-  });
-  $('#btn2').click(function() {
-    abortNewton();
-    $('#inner').isotope({
-      filter: '.client'
-    });
-  });
-  $('#btn3').click(function() {
-    abortNewton();
-    $('#inner').isotope({
-      filter: '.win, .client, .open'
-    });
-  });
-  $('#btn4').click(function() {
-    abortNewton();
-    $('#inner').isotope({
-      filter: '.ios, .client, .open'
-    });
-  });
-  $('#btn5').click(function() {
-    abortNewton();
-    $('#inner').isotope({
-      filter: '.android, .client, .open'
-    });
-  });
+
+
+  // $('#btn1').click(function() {
+  //   add_Cards();
+  //
+  //   $('#inner').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+  // });
+
+
 
   function abortNewton() {
     $("#inner").sortable('enable');
     $("#inner").css({
       'top': '50px',
-      'left': '0px',
-      'width': '350px',
+      'left': '100px',
+      'width': '750px',
       'height': '500px'
     });
     runs = "stop";
     $('#bar').show(300);
     $(".steady").animate({
-      left: '360px'
+      left: '880px'
     }, 300);
   }
 });
