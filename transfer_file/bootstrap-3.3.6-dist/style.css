@@ -1,0 +1,167 @@
+body {
+  background: #F7F7F7;
+  font-family: 'Roboto', sans-serif;
+  color: #9F9F9F;
+}
+#filter_pane {
+  width: 20%;
+  margin-left: 70px;
+  margin-top: 40px;
+  float: left;
+}
+.selection_btn {
+  float: left;
+  margin-left: 10px;
+  width: 200px;
+  height: 50px;
+  text-align: center;
+  margin-top: 30px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  color: #8E8E8E;
+}
+.num_selection {
+  color: #C3C3C3;
+}
+#selection_btn_1 {
+  margin-left: 15%;
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+}
+#selection_btn_2 {
+  background: #EEEEEE;
+  border-color: #EEEEEE;
+}
+#selection_btn_3 {
+  background: #EEEEEE;
+  border-color: #EEEEEE;
+}
+#search_pane {
+  width: 66%;
+  background: #FFFFFF;
+  height: 1000px;
+  margin: auto;
+  /*text-align: center;*/
+  border-radius: 35px;
+  float: left;
+
+}
+#selection_pane {
+  text-align: center;
+  background: #F7F7F7;
+  width: 100%;
+  height: 80px;
+}
+#sort_pane {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+.sort_options {
+  float: right;
+  margin-right: 10px;
+  font-size: 14pt;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.glyphicon {
+  margin-right: 7px;
+}
+.dropdown-toggle {
+  width: 210px;
+  text-align: left;
+}
+#filter_caption {
+  font-size: 12pt;
+  color: #42BA7E;
+  font-weight: bold;
+}
+.card_input {
+  margin-top: 7px;
+  width: 210px;
+  border: none;
+  height: 35px;
+}
+#apply {
+  width: 210px;
+  text-align: center;
+  color: #F7F7F7;
+  background: #42BA7E;
+  height: 35px;
+  border: none;
+  font-size: 17px;
+  margin-top: 20px;
+}
+.item_time {
+  /*float: left;*/
+}
+.item_info {
+  margin: 10px;
+  /*margin-top: 10px;*/
+  float: left;
+  width: 70%;
+}
+#item_pane {
+  /*margin-top: 60px;*/
+  margin-left: 40px;
+}
+.item_card {
+  margin-top: 30px;
+  background: #F7F7F7;
+  border-radius: 3px;
+  width: 95%;
+  height: 170px;
+  position: relative;
+}
+.item_img {
+  float: left;
+  margin: 10px;
+  /*height: 150px;*/
+  border-radius: 5px;
+  width: 150px;
+  height: auto;
+  margin-right: 10px;
+}
+.map {
+  position: relative;
+  overflow:visible;
+  width: 250px;
+  height: 250px;
+  /*float: right;*/
+  margin-left: 800px;
+}
+.item_price {
+  float: right;
+  /*margin-right: 20px;*/
+  /*margin-left: 100px;*/
+}
+.card-2 {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16), 0 2px 3px rgba(0, 0, 0, 0.23);
+  border-radius: 2px;
+}
+.margin_top_10 {
+  margin-top: 10px;
+}
+.margin_top_5 {
+  margin-top: 5px;
+}
+.caption_xl {
+  font-size: 15pt;
+  font-weight: bold;
+}
+.caption_large {
+  font-size: 14pt;
+  font-weight: bold;
+}
+.caption_mediun {
+  font-size: 13pt;
+  margin-bottom: 10px;
+}
+.caption_small {
+  font-size: 12pt;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
