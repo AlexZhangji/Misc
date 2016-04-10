@@ -1,0 +1,45 @@
+.music_card {
+  /*card attribute*/
+  margin: 10px;
+  position: absolute;
+  /*background-size: 100%;*/
+  width: 250px;
+  height: 250px;
+  background-size: 100%;
+  background: #fff;
+  /*end of card attribute*/
+  background-size: 250px;
+  border-radius: 250px;
+  -webkit-border-radius: 250px;
+  -moz-border-radius: 250px;
+  border: 3px solid #FFF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+  background-image: url(../img/b.jpg);
+  /*background: url(./img/disc_base.svg) no-repeat center;*/
+  -webkit-mask: url(../img/disc_mask.svg) no-repeat center;
+  /*rotating*/
+  -webkit-animation: rotation 15s infinite linear;
+}
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+#wild_img {
+  /*width: 100%;*/
+  max-width: 400px;
+  position: fixed;
+  z-index: 1000;
+  top: -200px;
+  right: -200px;
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-box-shadow: 2px 1px 6px 1px #555;
+  box-shadow: 2px 1px 6px 1px #555;
+}

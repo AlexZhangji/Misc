@@ -1,0 +1,120 @@
+body {
+  height: 2000px;
+  background: #E8E8E8;
+  color: rgba(0, 0, 0, .87);
+  font-family: 'Raleway', sans-serif;
+}
+.gravity {
+  margin: 10px;
+}
+#container {
+  position: fixed;
+}
+.card_pane {
+  margin: 10px;
+  position: absolute;
+  background-size: 100%;
+  width: 150px;
+  height: 150px;
+  background-size: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background: #fff;
+}
+
+/*.music_card_pane {
+  margin: 10px;
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}*/
+
+.card_pane:hover {
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.24);
+  opacity: .75;
+}
+.card_pane img {
+  width: 100%;
+  height: 100%;
+}
+#inner {
+  top: 50px;
+  left: 100px;
+  height: 500px;
+  width: 750px;
+}
+#bar {
+  position: absolute;
+  background-size: 100%;
+  width: 150px;
+  height: 35px;
+  top: 0px;
+  left: 0px;
+  background-repeat: no-repeat;
+  background-image: url('http://oi58.tinypic.com/14vmskl.jpg');
+  box-shadow: 0px 0px 2px 1px black;
+}
+#bar:hover {
+  box-shadow: 0px 0px 5px 1px black;
+}
+#search_img {
+  position: absolute;
+  width: 105px;
+  height: 35px;
+  top: 00px;
+  left: 860px;
+  background: #EEE;
+  box-shadow: 0px 0px 2px 1px black;
+}
+.btn {
+  position: absolute;
+  width: 110px;
+  height: 35px;
+  background-color: black;
+  box-shadow: 0px 0px 2px 1px black;
+  color: white;
+  /*font-weight: bold;*/
+  font-size: 14px;
+  text-align: center;
+  line-height: 35px;
+
+}
+#btn1 {
+  top: 50px;
+  left: 860px;
+}
+#btn1:hover {
+  box-shadow: 0px 0px 5px 1px black;
+}
+#btn2 {
+  top: 90px;
+  left: 860px;
+  box-shadow: 0px 0px 2px 1px black;
+}
+#btn2:hover {
+  box-shadow: 0px 0px 5px 1px black;
+}
+#btn3 {
+  top: 130px;
+  left: 860px;
+  box-shadow: 0px 0px 2px 1px black;
+}
+#btn3:hover {
+  box-shadow: 0px 0px 5px 1px black;
+}
+#btn4 {
+  top: 170px;
+  left: 860px;
+  box-shadow: 0px 0px 2px 1px black;
+}
+#btn4:hover {
+  box-shadow: 0px 0px 5px 1px black;
+}
+#btn5 {
+  top: 210px;
+  left: 860px;
+  box-shadow: 0px 0px 2px 1px black;
+}
+#btn5:hover {
+  box-shadow: 0px 0px 5px 1px black;
+}

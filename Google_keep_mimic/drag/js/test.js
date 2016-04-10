@@ -1,8 +1,8 @@
 $(document).ready(function() {
-  $('#card_pane').isotope({
+  $('#inner').isotope({
     itemSelector: '.gravity'
   });
-  var list = $('#card_pane');
+  var list = $('#inner');
   list.sortable({
     cursor: 'move',
     start: function(event, ui) {
@@ -14,7 +14,6 @@ $(document).ready(function() {
           top: ui.originalPosition.top,
           left: ui.originalPosition.left
         });
-      console.log('top:' + ui.originalPosition.top + '\n left:' +  ui.originalPosition.left);
       list.isotope('reloadItems');
     },
     change: function(event, ui) {
@@ -37,19 +36,21 @@ $(document).ready(function() {
           sortBy: 'original-order',
           transformsEnabled: false
         });
+
+      $('#inner').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+
     }
   });
-
-  $('#gravity_btn').click(function() {
-    $("#card_pane").sortable('disable');
-    $("#card_pane").css({
+  $('#bar').click(function() {
+    $("#inner").sortable('disable');
+    $("#inner").css({
       'top': '0px',
       'left': '0px',
       'width': 'initial',
       'height': 'initial'
     });
     runs = "start";
-    $('#card_pane').jGravity({
+    $('#inner').jGravity({
       target: 'div.gravity',
       ignoreClass: 'div.steady',
       weight: 10,
@@ -63,18 +64,26 @@ $(document).ready(function() {
   });
 
 
+  // $('#btn1').click(function() {
+  //   add_Cards();
+  //
+  //   $('#inner').isotope( 'reloadItems' ).isotope({ sortBy: 'original-order' });
+  // });
+
+
+
   function abortNewton() {
-    $("#card_pane").sortable('enable');
-    $("#card_pane").css({
+    $("#inner").sortable('enable');
+    $("#inner").css({
       'top': '50px',
-      'left': '0px',
-      'width': '350px',
+      'left': '100px',
+      'width': '750px',
       'height': '500px'
     });
     runs = "stop";
-    $('#gravity_btn').show(300);
+    $('#bar').show(300);
     $(".steady").animate({
-      left: '360px'
+      left: '880px'
     }, 300);
   }
 });

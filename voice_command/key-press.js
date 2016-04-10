@@ -18,9 +18,8 @@ $(document).ready(function() {
 
     match = keyHistory.match(easterEgg);
     if (match) {
-      alert('Dev mode on!');
+      alert('Cheat mode on!');
       keyHistory = match = '';
-      appear();
     } else if (keyHistory.length > 30) {
       keyHistory = keyHistory.substr((keyHistory.length - eggLength - 1));
     }
