@@ -43,3 +43,19 @@
   -webkit-box-shadow: 2px 1px 6px 1px #555;
   box-shadow: 2px 1px 6px 1px #555;
 }
+
+#cat_img {
+  /*width: 100%;*/
+  max-width: 400px;
+  position: fixed;
+  z-index: 1000;
+  bottom: -500px;
+  right: 10px;
+  -webkit-transform: rotate(-15deg);
+  -moz-transform: rotate(-15deg);
+  -ms-transform: rotate(-15deg);
+  -o-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  -webkit-box-shadow: 2px 1px 6px 1px #555;
+  box-shadow: 2px 1px 6px 1px #555;
+}
