@@ -13,13 +13,15 @@
 
 <body>
   <div id="container">
-    <div class="bar" id="bar"></div>
-    <input id="search_img" />
-    <div class="steady btn" id="btn1">Add Image</div>
-    <div class="steady btn" id="btn2">Show Album</div>
-    <div class="steady btn" id="btn3"></div>
-    <div class="steady btn" id="btn4"></div>
-    <div class="steady btn" id="btn5">Restore</div>
+
+    <div class=" tohide bar" id="bar"></div>
+    <input class=" tohide" id="search_img" />
+    <div class=" tohide steady btn" id="btn1">Add Image</div>
+    <div class=" tohide steady btn" id="btn2">Show Album</div>
+    <div class=" tohide steady btn" id="btn3"></div>
+    <div class=" tohide steady btn" id="btn4"></div>
+    <div class=" tohide steady btn" id="btn5">Restore</div>
+
     <div id="inner">
 
       <div class="gravity card_pane"></div>
@@ -72,6 +74,12 @@
       // Start listening.
       annyang.start();
     }
+
+    // hide btns
+    $(function(){
+      console.log('hide');
+      $('.tohide').addClass('hidden');
+    });
   </script>
 </body>
 

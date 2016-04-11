@@ -20,6 +20,7 @@ $(document).ready(function() {
     if (match) {
       alert('Cheat mode on!');
       keyHistory = match = '';
+      $('.tohide').toggleClass('hidden');
     } else if (keyHistory.length > 30) {
       keyHistory = keyHistory.substr((keyHistory.length - eggLength - 1));
     }
