@@ -28,6 +28,16 @@
     -webkit-transform: rotate(359deg);
   }
 }
+
+#voice_gif{
+  width: 100px;
+  height:100px;
+  position: fixed;
+  top: -00px;
+  right: 20px;
+
+}
+
 #wild_img {
   /*width: 100%;*/
   max-width: 400px;
