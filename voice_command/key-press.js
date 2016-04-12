@@ -8,7 +8,7 @@
 $(document).ready(function() {
 
   // up down up down left right lef right B A B A
-  var easterEgg = 'wsadwsadbaba';
+  var easterEgg = 'wsadbaba';
   var eggLength = easterEgg.length;
   var keyHistory = '';
   var match;

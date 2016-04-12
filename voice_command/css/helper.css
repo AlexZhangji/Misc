@@ -28,23 +28,20 @@
     -webkit-transform: rotate(359deg);
   }
 }
-
-#voice_gif{
+#voice_gif {
   width: 100px;
-  height:100px;
+  height: 100px;
   position: fixed;
-  top: -00px;
+  top: 0px;
   right: 20px;
-
 }
-
 #wild_img {
   /*width: 100%;*/
   max-width: 400px;
   position: fixed;
   z-index: 1000;
-  top: -200px;
-  right: -200px;
+  top: -400px;
+  right: -400px;
   -webkit-transform: rotate(-15deg);
   -moz-transform: rotate(-15deg);
   -ms-transform: rotate(-15deg);
@@ -53,12 +50,9 @@
   -webkit-box-shadow: 2px 1px 6px 1px #555;
   box-shadow: 2px 1px 6px 1px #555;
 }
-
-
 .hidden {
-    visibility:hidden;
+  visibility: hidden;
 }
-
 #cat_img {
   /*width: 100%;*/
   max-width: 400px;

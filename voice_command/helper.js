@@ -14,16 +14,13 @@ $(document).ready(function() {
 
   // disk appear
   $('#btn2').click(function() {
-      album_appear();
+    album_appear();
   });
 
   // restore
   $('#btn5').click(function() {
     restore();
   });
-
-
-
 });
 
 function search_img(term) {
@@ -49,7 +46,10 @@ function search_img(term) {
     .done(function(data) {
       // alert("success");
       console.log(data);
-      var img_url = data.value[0].contentUrl;
+      // get a random img
+      var num = Math.floor(Math.random() * 10);
+
+      var img_url = data.value[num].contentUrl;
       // $('#img_api').attr("src", img_url);
       console.log('img_url:' + img_url);
       // return img_url;
@@ -112,7 +112,7 @@ function restore() {
 }
 
 function album_appear() {
-  console.log('album appear')
+  console.log('album appear');
   $('#wild_img').animate({
     // bottom: '00px'
     top: '50px',
