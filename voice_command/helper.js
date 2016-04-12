@@ -112,12 +112,12 @@ function restore() {
 }
 
 function album_appear() {
-  console.log('album appear');
   $('#wild_img').animate({
     // bottom: '00px'
     top: '50px',
-    right: '100px',
+    right: '20px',
   }, 1000);
+  console.log('album appear');
 }
 
 function showImages(ss) {
