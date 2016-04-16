@@ -19,7 +19,7 @@
     <input class=" tohide" id="search_img" />
     <div class=" tohide steady btn" id="btn1">Add Image</div>
     <div class=" tohide steady btn" id="btn2">Show Album</div>
-    <div class=" tohide steady btn" id="btn3"></div>
+    <div class=" tohide steady btn" id="btn3">Check Muisc</div>
     <div class=" tohide steady btn" id="btn4"></div>
     <div class=" tohide steady btn" id="btn5">Restore</div>
 
@@ -32,8 +32,13 @@
     </div>
 
 
-    <img src="./img/cat.jpg" id="cat_img" >
-    <div class="music_card" id="wild_img" ></div>
+    <img src="./img/cat.jpg" id="cat_img">
+    <div class="music_card rotate_15" id="wild_img"></div>
+
+    <!-- whats the better way to do this? -->
+    <audio controls id="audio_tag" style="visibility:hidden">
+      <source src="./misc/viva.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
 
@@ -66,6 +71,8 @@
         'test': function() {
           alert('Working!');
         },
+        'play music':play_music,
+        'pause music':play_music,
       };
 
       // Add our commands to annyang

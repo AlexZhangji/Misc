@@ -15,7 +15,24 @@ $(document).ready(function() {
   // disk appear
   $('#btn2').click(function() {
     album_appear();
+    play_music();
   });
+
+
+  $('#btn3').click(function() {
+    // album_appear();
+    // $('#audio_tag')
+    // var music_player = document.getElementById('audio_tag');
+    //
+    // if (music_player.paused) {
+    //   music_player.play();
+    // } else {
+    //   music_player.pause();
+    // }
+    play_music();
+  });
+
+
 
   // restore
   $('#btn5').click(function() {
@@ -64,6 +81,26 @@ function search_img(term) {
 }
 
 
+// muisc_helper
+function play_music() {
+  var music_player = document.getElementById('audio_tag');
+  // var disk_img = document.getElementById('wild_img');
+
+  if (music_player.paused) {
+    music_player.play();
+    $('#wild_img').addClass('rotate_15');
+  } else {
+    music_player.pause();
+    $('#wild_img').removeClass('rotate_15');
+  }
+  // toogle the rotation
+
+
+}
+
+
+
+
 // voice helper
 function fall() {
   console.log('fall');
@@ -87,6 +124,8 @@ function fall() {
     left: '0px'
   }, 300);
 }
+
+
 
 function nono() {
   alert('Nono, bad! bad !');
