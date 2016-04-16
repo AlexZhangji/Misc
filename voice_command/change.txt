@@ -1,0 +1,5 @@
+1. better way to return search_img.  current way is too hacky and ugly.
+
+2. album should stop spin when music is over. should find way to check that
+
+3.ablum image still not fit. tried contain, auto, and cover, no good.
