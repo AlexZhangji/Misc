@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  Input
+  <input id="input" />
+  <audio controls id="audio_tag" style="visibility:hidden">
+    <source type="audio/mpeg">
+  </audio>
+  <button id="btn">Click</button>
+  <script src="http://code.jquery.com/jquery-1.12.2.js"></script>
+  <script src="./itunesAPI.js"></script>
+
+  <script>
+    $(document).ready(function() {
+
+      $('#btn').click(function(){
+        var search_term = $('#input').val();
+        search_term = search_term.replace(/\s/g, '+');
+        // search_script.src = 'https://itunes.apple.com/search?term=' + search_term + '&callback=getSongs';
+
+        $.getJSON(
+          'https://itunes.apple.com/search?term=' + search_term + '&callback=?',
+          function(data) {
+            console.log(data)
+          });
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

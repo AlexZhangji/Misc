@@ -20,16 +20,9 @@ $(document).ready(function() {
 
 
   $('#btn3').click(function() {
-    // album_appear();
-    // $('#audio_tag')
-    // var music_player = document.getElementById('audio_tag');
-    //
-    // if (music_player.paused) {
-    //   music_player.play();
-    // } else {
-    //   music_player.pause();
-    // }
-    play_music();
+    var input = $('#search_img').val();
+    play_song(input);
+    // play_music();
   });
 
 
@@ -159,7 +152,37 @@ function album_appear() {
   console.log('album appear');
 }
 
-function showImages(ss) {
+// use itunes API to find song info.
+// name/url/thumbnail
+function play_song(song_name) {
+  console.log('play song');
+
+  var search_term = song_name.replace(/\s/g, '+');
+  // search_script.src = 'https://itunes.apple.com/search?term=' + search_term + '&callback=getSongs';
+
+  $.getJSON(
+    'https://itunes.apple.com/search?term=' + search_term + '&callback=?',
+    function(data) {
+      console.log(data)
+        // get info
+      var music_url = data.results[0].previewUrl;
+      var music_img = data.results[0].artworkUrl100;
+
+      // update music url and img
+      $('#wild_img').css('background-image', 'url(' + music_img + ')');
+      $("#audio_tag").attr("src", music_url).trigger("play");
+      album_appear();
+      // setTimeout(play_music(), 1300);
+      // setTimeout(play_music(), 1500);
+
+    });
+
+
+  // album_appear();
+}
+
+
+function show_images(ss) {
 
   // alert(ss);
   if (ss.indexOf('cat') !== -1) {
