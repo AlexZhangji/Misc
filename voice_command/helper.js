@@ -4,7 +4,7 @@ $(document).ready(function() {
     // add_Cards();
     var input = $('#search_img').val();
     // var input = './img/disk.jpg';
-    search_img(input);
+    search_img(input, 'img');
 
     // reload page
     // $('#inner').isotope('reloadItems').isotope({
@@ -33,7 +33,7 @@ $(document).ready(function() {
   });
 });
 
-function search_img(term) {
+function search_img(term, type) {
   var params = {
     // Request parameters
     "q": term,
@@ -63,8 +63,13 @@ function search_img(term) {
       // $('#img_api').attr("src", img_url);
       console.log('img_url:' + img_url);
       // return img_url;
-      add_Cards(img_url, 'img');
-
+      // how to return value?
+      // this way is really hacky and ugly... :/
+      if (type === 'img') {
+        add_Cards(img_url, 'img');
+      } else if (type === 'album') {
+        $('#wild_img').css('background-image', 'url(' + img_url + ')');
+      }
     })
     .fail(function() {
       // alert("error");
@@ -167,13 +172,15 @@ function play_song(song_name) {
         // get info
       var music_url = data.results[0].previewUrl;
       var music_img = data.results[0].artworkUrl100;
-
+      var artist_name = data.results[0].artistName;
       // update music url and img
-      $('#wild_img').css('background-image', 'url(' + music_img + ')');
-      $("#audio_tag").attr("src", music_url).trigger("play");
+      // $('#wild_img').css('background-image', 'url(' + music_img + ')');
+      var music_search_term = search_term + ' ' + artist_name + ' album';
+      search_img(music_search_term, 'album');
       album_appear();
-      // setTimeout(play_music(), 1300);
-      // setTimeout(play_music(), 1500);
+      $("#audio_tag").attr("src", music_url).trigger("play");
+
+
 
     });
 
@@ -184,7 +191,7 @@ function play_song(song_name) {
 
 function show_images(ss) {
 
-  // alert(ss);
+  console.log(ss);
   if (ss.indexOf('cat') !== -1) {
     $('#cat_img').animate({
       bottom: '-30px'
@@ -194,7 +201,7 @@ function show_images(ss) {
   } else {
     console.log('voice_2:' + ss);
     // alert('show me ' + ss);
-    search_img(ss);
+    search_img(ss, 'img');
   }
 }
 
