@@ -19,7 +19,7 @@ $(document).ready(function() {
   });
 
 
-  $('#btn3_3').click(function() {
+  $('#btn3').click(function() {
     var input = $('#search_img').val();
     play_song(input);
     // play_music();
