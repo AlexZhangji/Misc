@@ -8,6 +8,8 @@
 
   <!-- fonts -->
   <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+
   <title>Voice Command</title>
 </head>
 
@@ -19,7 +21,7 @@
     <input class=" tohide" id="search_img" />
     <div class=" tohide steady btn" id="btn1">Add Image</div>
     <div class=" tohide steady btn" id="btn2">Show Album</div>
-    <div class=" tohide steady btn" id="btn3">Check Muisc</div>
+    <div class=" tohide steady btn" id="btn3"></div>
     <div class=" tohide steady btn" id="btn4"></div>
     <div class=" tohide steady btn" id="btn5">Restore</div>
 
@@ -40,7 +42,16 @@
       <source src="./misc/viva.mp3" type="audio/mpeg">
     </audio>
   </div>
-
+  <div id="helper">
+    Try:<br />
+    show me *anything<br />
+    test music<br />
+    music play<br />
+    music pause<br />
+    Avada Kedavra<br />
+    delete *first/last/all<br />
+    cheat mode<br />
+  </div>
 
 
   <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
@@ -71,9 +82,14 @@
         'test': function() {
           alert('Working!');
         },
-        'music play':play_music,
-        'music pause':play_music,
-        'play me *tag':play_song,
+        'music play': play_music,
+        'music pause': play_music,
+        'play me *tag': play_song,
+        'delete *tag':delete_card,
+        'cheat mode':function(){
+          alert('Cheat mode on!');
+          $('.tohide').toggleClass('hidden');
+        },
       };
 
       // Add our commands to annyang
@@ -88,8 +104,6 @@
     //   console.log('hide');
     //   $('.tohide').addClass('hidden');
     // });
-
-
   </script>
 </body>
 

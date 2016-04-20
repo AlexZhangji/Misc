@@ -1,5 +1,16 @@
-1. better way to return search_img.  current way is too hacky and ugly.
+//doable now
+1. cat image should back after while
 
-2. album should stop spin when music is over. should find way to check that
+2.add function to delete/add card
+
+
+
+//dk
+1.better way to return search_img.  current way is too hacky and ugly.
+
+2.album should stop spining when music is over. should find way to check that. or back to hide 
 
 3.ablum image still not fit. tried contain, auto, and cover, no good.
+
+
+

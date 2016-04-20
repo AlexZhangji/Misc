@@ -19,7 +19,7 @@ $(document).ready(function() {
   });
 
 
-  $('#btn3').click(function() {
+  $('#btn3_3').click(function() {
     var input = $('#search_img').val();
     play_song(input);
     // play_music();
@@ -32,6 +32,25 @@ $(document).ready(function() {
     restore();
   });
 });
+
+// once music finished playing
+// make ablum image back
+$("#audio_tag").bind('ended', function(){
+    // done playing
+    console.log("audio finished");
+
+    // stop spining
+    $('#wild_img').removeClass('rotate_15');
+
+    // send back
+    $('#wild_img').animate({
+      // bottom: '00px'
+      top: '-400px',
+      right: '-400px',
+    }, 2000);
+    $('#wild_img').addClass('rotate_15');
+});
+
 
 function search_img(term, type) {
   var params = {
@@ -92,8 +111,6 @@ function play_music() {
     $('#wild_img').removeClass('rotate_15');
   }
   // toogle the rotation
-
-
 }
 
 
@@ -196,6 +213,14 @@ function show_images(ss) {
     $('#cat_img').animate({
       bottom: '-30px'
     });
+
+    // send cat back
+    setTimeout(function() {
+      $('#cat_img').animate({
+        bottom: '-500px'
+      });
+    }, 4500);
+
     console.log('voice:' + ss);
     console.log('cat appear!');
   } else {
@@ -205,6 +230,49 @@ function show_images(ss) {
   }
 }
 
+function delete_card(command) {
+  var card_list = $('.card_pane');
+  // console.log(card_list.length);
+  var num_card = card_list.length;
+
+  if (num_card > 0) {
+    if (command === 'card' || command === 'last') {
+      // console.log('delete');
+      $($('.card_pane')[num_card - 1]).fadeOut(700);
+      setTimeout(function() {
+        $('.card_pane')[num_card - 1].remove();
+      }, 705);
+
+      // $('.card_pane')[num_card - 1];
+    } else if (command === 'first') {
+      $($('.card_pane')[0]).fadeOut(700);
+      setTimeout(function() {
+        $('.card_pane')[0].remove();
+      }, 705);
+    } else if (command === 'all') {
+      $('.card_pane').fadeOut(700);
+      setTimeout(function() {
+        $('.card_pane').remove();
+      }, 705);
+    }
+    setTimeout(function() {
+      resort();
+    }, 710);
+  }
+  // if no card on page
+  else {
+    alert('No card to delete');
+  }
+
+}
+
+
+// sort the list
+function resort() {
+  $('#inner').isotope('reloadItems').isotope({
+    sortBy: 'original-order'
+  });
+}
 
 function add_Cards(input, type) {
   if (type === 'img') {
