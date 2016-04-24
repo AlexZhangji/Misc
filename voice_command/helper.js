@@ -35,20 +35,20 @@ $(document).ready(function() {
 
 // once music finished playing
 // make ablum image back
-$("#audio_tag").bind('ended', function(){
-    // done playing
-    console.log("audio finished");
+$("#audio_tag").bind('ended', function() {
+  // done playing
+  console.log("audio finished");
 
-    // stop spining
-    $('#wild_img').removeClass('rotate_15');
+  // stop spining
+  $('#wild_img').removeClass('rotate_15');
 
-    // send back
-    $('#wild_img').animate({
-      // bottom: '00px'
-      top: '-400px',
-      right: '-400px',
-    }, 2000);
-    $('#wild_img').addClass('rotate_15');
+  // send back
+  $('#wild_img').animate({
+    // bottom: '00px'
+    top: '-400px',
+    right: '-400px',
+  }, 2000);
+  $('#wild_img').addClass('rotate_15');
 });
 
 
