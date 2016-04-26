@@ -140,10 +140,21 @@ function fall() {
   }, 300);
 }
 
+// parameter is just to prolong the time
+function mirror(useless) {
+  img = 'http://www.nihaopay.com/img/team/zune1.jpg';
+  var img_card = '<div class="gravity card_pane" style="left:100px;top:2000px;"> <img src="img_url" /> </div>';
+  img_card = img_card.replace('img_url', img);
+  $('#inner').append(img_card);
+  console.log('added');
 
+  $('#inner').isotope('reloadItems').isotope({
+    sortBy: 'original-order'
+  });
+}
 
 function nono() {
-  alert('Nono, bad! bad !');
+  alert('Ministry of Magic Warning. \nMinistry of Magic has logged a record of this behavior along with the magic wand of the participants due to potential violations of Wizard law.');
 }
 
 function restore() {
