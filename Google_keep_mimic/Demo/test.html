@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSSample</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+    $(function() {
+        var params = {
+            // Request parameters
+            "language": "en",
+            "detectOrientation ": "true",
+        };
+
+        // var body = {"url":"http://example.com/images/test.jpg"};
+
+        $.ajax({
+            url: "https://api.projectoxford.ai/vision/v1.0/ocr?" + $.param(params),
+            beforeSend: function(xhrObj){
+                // Request headers
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","b9947fb8c68349b991b7ab2b3eb520f3");
+            },
+            type: "POST",
+            // Request body
+            data: "{'url':'https://zapier.cachefly.net/storage/photos/5d1830d25bb3b9b317b06b042622a7d0.png'}",
+
+        })
+        .done(function(data) {
+            alert("success");
+            // console.log(data.regions);
+            var res_str = '';
+            for(var i = 0 ; i < data.regions.length; i++){
+              var words = data.regions[i];
+              for(var c = 0; c < words.length; c++){
+                res_str += words[c].text;
+                console.log(words[c].text);
+              }
+            }
+
+            console.log(res_str);
+
+        })
+        .fail(function() {
+            alert("error");
+        });
+    });
+</script>
+</body>
+</html>

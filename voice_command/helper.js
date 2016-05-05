@@ -256,11 +256,13 @@ function delete_card(command) {
 
       // $('.card_pane')[num_card - 1];
     } else if (command === 'first') {
+      console.log('delete first');
       $($('.card_pane')[0]).fadeOut(700);
       setTimeout(function() {
         $('.card_pane')[0].remove();
       }, 705);
     } else if (command === 'all') {
+      console.log('delete all');
       $('.card_pane').fadeOut(700);
       setTimeout(function() {
         $('.card_pane').remove();
