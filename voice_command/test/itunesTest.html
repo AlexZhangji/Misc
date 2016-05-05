@@ -15,20 +15,16 @@
   <button id="btn">Click</button>
   <script src="http://code.jquery.com/jquery-1.12.2.js"></script>
   <script src="./itunesAPI.js"></script>
+  <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
 
   <script>
     $(document).ready(function() {
 
       $('#btn').click(function(){
         var search_term = $('#input').val();
-        search_term = search_term.replace(/\s/g, '+');
-        // search_script.src = 'https://itunes.apple.com/search?term=' + search_term + '&callback=getSongs';
+        mode = "UK English Female";
+        responsiveVoice.speak(search_term,mode,{pitch: .9,rate: 1});
 
-        $.getJSON(
-          'https://itunes.apple.com/search?term=' + search_term + '&callback=?',
-          function(data) {
-            console.log(data)
-          });
       });
 
     });
