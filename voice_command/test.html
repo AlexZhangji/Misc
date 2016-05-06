@@ -20,9 +20,9 @@
     <img id="voice_gif" src="./img/voice.gif" />
     <input class=" tohide" id="search_img" />
     <div class=" tohide steady btn" id="btn1">Add Image</div>
-    <div class=" tohide steady btn" id="btn2">Show Album</div>
+    <div class=" tohide steady btn" id="btn2">Play/Pause</div>
     <div class=" tohide steady btn" id="btn3">Play Music</div>
-    <div class=" tohide steady btn" id="btn4"></div>
+    <div class=" tohide steady btn" id="btn4">Delete First</div>
     <div class=" tohide steady btn" id="btn5">Restore</div>
 
     <div id="inner">
@@ -43,18 +43,23 @@
     </audio>
   </div>
   <div id="helper">
-    Try:<br />
-    play me *anything<br />
-    show me *anything<br />
-    music play<br />
-    music pause<br />
-    delete *first/last/all<br />
-    cheat mode<br />
+    Try:
+    <br /> play me *anything
+    <br /> show me *anything
+    <br /> music play
+    <br /> music pause
+    <br /> delete *first/last/all
+    <br /> cheat mode
+    <br /> Avada Kedavra!
+    <br /> Falling down
+    <br /> Restore
+
   </div>
 
 
   <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
   <script src="./js/annyang.js"></script>
+  <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
   <script src="./js/test.js"></script>
   <script src="./js/jGravity.js"></script>
   <script src="./js/jquery-ui.js"></script>
@@ -68,6 +73,9 @@
   <!-- voice input -->
   <script>
     if (annyang) {
+
+
+
       // Let's define a command.
       var commands = {
         'hello': function() {
@@ -84,12 +92,12 @@
         'music play': play_music,
         'music pause': play_music,
         'play me *tag': play_song,
-        'delete *tag':delete_card,
-        'cheat mode':function(){
+        'delete *tag': delete_card,
+        'cheat mode': function() {
           alert('Cheat mode on!');
           $('.tohide').toggleClass('hidden');
         },
-        'Mirror mirror *tag':mirror,
+        'Mirror mirror *tag': mirror,
       };
 
       // Add our commands to annyang
@@ -100,9 +108,22 @@
     }
 
     // hide btns
-    $(function(){
+    $(function() {
       console.log('hide');
       $('.tohide').addClass('hidden');
+
+      //welcome msg
+      var welcome = 'welcome, this is your voice assistant! Please give your order.'
+      var mode = "UK English Female";
+
+      setTimeout(function() {
+        responsiveVoice.speak(welcome, mode, {
+          pitch: .9,
+          rate: 1
+        });
+      }, 1500);
+
+
     });
   </script>
 </body>

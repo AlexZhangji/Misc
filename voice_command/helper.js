@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+  $('#btn4').click(function() {
+    delete_card('first');
+  });
+
   $('#btn1').click(function() {
     // add_Cards();
     var input = $('#search_img').val();
@@ -14,7 +18,7 @@ $(document).ready(function() {
 
   // disk appear
   $('#btn2').click(function() {
-    album_appear();
+    // album_appear();
     play_music();
   });
 
@@ -89,6 +93,14 @@ function search_img(term, type) {
       } else if (type === 'album') {
         $('#wild_img').css('background-image', 'url(' + img_url + ')');
       }
+
+      //speak if not for search album image
+      if (type !== 'album') {
+        responsiveVoice.speak(term + ' image', "UK English Female", {
+          pitch: 1,
+          rate: 1
+        });
+      }
     })
     .fail(function() {
       // alert("error");
@@ -102,13 +114,22 @@ function search_img(term, type) {
 function play_music() {
   var music_player = document.getElementById('audio_tag');
   // var disk_img = document.getElementById('wild_img');
-
-  if (music_player.paused) {
-    music_player.play();
-    $('#wild_img').addClass('rotate_15');
-  } else {
-    music_player.pause();
-    $('#wild_img').removeClass('rotate_15');
+  if (music_player) {
+    if (music_player.paused) {
+      responsiveVoice.speak('Playing', "UK English Female", {
+        pitch: 1,
+        rate: 1
+      });
+      music_player.play();
+      $('#wild_img').addClass('rotate_15');
+    } else {
+      music_player.pause();
+      responsiveVoice.speak('Paused', "UK English Female", {
+        pitch: 1,
+        rate: 1
+      });
+      $('#wild_img').removeClass('rotate_15');
+    }
   }
   // toogle the rotation
 }
@@ -155,6 +176,11 @@ function mirror(useless) {
 
 function nono() {
   alert('Ministry of Magic Warning. \nMinistry of Magic has logged a record of this behavior along with the magic wand of the participants due to potential violations of Wizard law.');
+  responsiveVoice.speak('NO, no, This is very bad.',"UK English Male", {
+    pitch: .8,
+    rate: 1
+  });
+
 }
 
 function restore() {
