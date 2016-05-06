@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/test.css">
+  <link rel="stylesheet" href="./css/helper.css">
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet" type="text/css">
+
+  <title>Voice Command</title>
+</head>
+
+<body>
+  <div id="container">
+
+    <div class=" tohide bar" id="bar"></div>
+    <img id="voice_gif" src="./img/voice.gif" />
+    <input class=" tohide" id="search_img" />
+    <div class=" tohide steady btn" id="btn1">Add Image</div>
+    <div class=" tohide steady btn" id="btn2">Play/Pause</div>
+    <div class=" tohide steady btn" id="btn3">Play Music</div>
+    <div class=" tohide steady btn" id="btn4">Delete First</div>
+    <div class=" tohide steady btn" id="btn5">Restore</div>
+
+    <div id="inner">
+      <!-- <div class="gravity card_pane"></div>
+      <div class="gravity card_pane"></div>
+      <div class="gravity card_pane"></div>
+      <div class="gravity card_pane"></div>
+      <div class="gravity card_pane"></div> -->
+    </div>
+
+
+    <img src="./img/cat.jpg" id="cat_img">
+    <div class="music_card rotate_15" id="wild_img"></div>
+
+    <!-- whats the better way to do this? -->
+    <audio controls id="audio_tag" style="visibility:hidden">
+      <source src="./misc/viva.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <div id="helper">
+    Try:
+    <br /> play me *anything
+    <br /> show me *anything
+    <br /> music play
+    <br /> music pause
+    <br /> delete *first/last/all
+    <br /> cheat mode
+    <br /> Avada Kedavra!
+    <br /> Falling down
+    <br /> Restore
+
+  </div>
+
+
+  <script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+  <script src="./js/annyang.js"></script>
+  <script src="http://code.responsivevoice.org/responsivevoice.js"></script>
+  <script src="./js/test.js"></script>
+  <script src="./js/jGravity.js"></script>
+  <script src="./js/jquery-ui.js"></script>
+  <script src="./js/isotope.pkgd.min.js"></script>
+
+  <!-- Mine -->
+  <script src="./key-press.js"></script>
+  <script src="./helper.js"></script>
+  <script src="./image-search.js"></script>
+
+  <!-- voice input -->
+  <script>
+    if (annyang) {
+
+
+
+      // Let's define a command.
+      var commands = {
+        'hello': function() {
+          alert('Hello world!');
+        },
+        'show me *tag': show_images,
+        'test music': album_appear,
+        'falling down': fall,
+        'restore': restore,
+        'Avada Kedavra': nono,
+        'test': function() {
+          alert('Working!');
+        },
+        'music play': play_music,
+        'music pause': play_music,
+        'play me *tag': play_song,
+        'delete *tag': delete_card,
+        'cheat mode': function() {
+          alert('Cheat mode on!');
+          $('.tohide').toggleClass('hidden');
+        },
+        'Mirror mirror *tag': mirror,
+      };
+
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening.
+      annyang.start();
+    }
+
+    // hide btns
+    $(function() {
+      console.log('hide');
+      $('.tohide').addClass('hidden');
+
+      //welcome msg
+      var welcome = 'welcome, this is your voice assistant! Please give your order.'
+      var mode = "UK English Female";
+
+      setTimeout(function() {
+        responsiveVoice.speak(welcome, mode, {
+          pitch: .9,
+          rate: 1
+        });
+      }, 1500);
+
+
+    });
+  </script>
+</body>
+
+</html>
