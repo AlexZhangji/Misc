@@ -35,17 +35,17 @@ html, body {
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 400;
 	float: right;
-	margin-top:40px; 
+	margin-top:40px;
 	margin-right: 25px;
 	font-size: 45pt;
-	min-width:80px; 
+	min-width:80px;
 	min-height:80px;
 }
 
 #lowerNum{
 	font-family: 'Quicksand', sans-serif;
 	float: right;
-	margin-top:40px; 
+	margin-top:40px;
 	margin-right: 25px;
 	font-size: 18pt;
 }
@@ -158,7 +158,7 @@ h1{
      -o-animation:ripple 0.4s linear;
         animation:ripple 0.4s linear;
 }
-	
+
 @-webkit-keyframes ripple {
     100% {opacity: 0; -webkit-transform: scale(1.2);}
 }

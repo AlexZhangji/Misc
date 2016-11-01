@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Material Calculator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="keep_ui.css">
+
+	<script src="http://code.jquery.com/jquery-1.12.0.js"></script>
+
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="color_picker_card card-plain">
+			<div style="margin-left:7px;">
+				<div class="color_img_circle" style="background:#EF5350;"> <i class="material-icons done_icon">done</i></div>
+				<div class="color_img_circle" style="background:#ff9833;"> <i class="material-icons done_icon">done</i></div>
+				<div class="color_img_circle" style="background:#F06292;"> <i class="material-icons done_icon">done</i></div>
+				<div class="color_img_circle" style="background:#BDBDBD;"> <i class="material-icons done_icon">done</i></div>
+				<div class="color_img_circle" style="background:#42A5F5;"> <i class="material-icons done_icon">done</i></div>
+				<div class="color_img_circle" style="background:#00BCD4;"> <i class="material-icons done_icon">done</i></div>
+				<div class="color_img_circle" style="background:#66BB6A;"> <i class="material-icons done_icon">done</i></div>
+				<div class="color_img_circle " style="background:#EC407A;"><i class="material-icons done_icon">done</i></div>
+
+			</div>
+		</div>
+
+
+		<div class="center-div">
+			<input type='text' id="text-input" />
+			<div class="text-container card">
+				<span id="main-text" class="text-shadow-1">
+				濟
+			</span>
+				<!-- end of text-container -->
+			</div>
+		</div>
+		<!-- end of center div -->
+
+		<!-- end of container -->
+	</div>
+	<script src="./js/jquery-ui.js"></script>
+
+	<script>
+		$(function() {
+			var textInput = document.querySelector('#text-input');
+			var mainText = document.querySelector('#main-text');
+			var defaultText = '濟';
+
+			// text input
+			textInput.addEventListener('input', function() {
+				console.log('input changed to: ', textInput.value);
+				if (!textInput.value) {
+					mainText.innerHTML = '濟';
+				} else {
+					mainText.innerHTML = textInput.value.split()[0];
+					if (mainText.innerHTML.length > 3) {
+						mainText.innerHTML = mainText.innerHTML.substring(0, 3);
+					}
+				}
+			});
+
+			$(".material-icons").tooltip({
+				tooltipClass: "tooltip_black"
+			});
+
+			// color picker
+			$(function() {
+				$(".color_img_circle").click(function() {
+					var selected_color = $(this).css('background');
+					// console.log( $(this) + "\n color:" + selected_color);
+
+					// set color
+					$('.text-container').css('background', selected_color);
+
+					// clear done icon
+					var list = $(this).siblings();
+					for (var i = 0; i < list.length; i++) {
+						list[i].children[0].style.visibility = 'hidden';
+						$(list[i]).removeClass('border_circle');
+					}
+
+					// and set new one
+					$(this).children().css('visibility','visible');
+					$(this).addClass('border_circle');
+					// $(this).children().css('font-size','10pt;');
+
+				});
+			});
+
+		});
+	</script>
+</body>
+
+</html>

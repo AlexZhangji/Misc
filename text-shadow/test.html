@@ -1,0 +1,78 @@
+<script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+<script>
+    // 1. Filtering arrays with filter()
+    // Filter the list of songs where the price is less than or equal to $10
+    var movies = [{
+        id: 1,
+        title: 'Fast and Furious',
+        price: 14
+    }, {
+        id: 2,
+        title: 'Bourne Identity',
+        price: 7
+    }, {
+        id: 3,
+        title: 'Triple X',
+        price: 11
+    }, {
+        id: 4,
+        title: 'Rush Hour',
+        price: 8
+    }, {
+        id: 5,
+        title: 'Happy Gilmore',
+        price: 9
+    }];
+
+    var moviesList = movies.filter(function(movie) {
+        if (movie.price <= 10) {
+            return movie;
+        }
+    });
+
+    console.log(moviesList);
+
+    // 2. Create the Comment class / constructor function
+    function Comment(text) {
+        this.text = text;
+    }
+
+    Comment.prototype.save = function() {
+      $.ajax({
+        url:'/api/comments',
+        type:'get',
+        data:{text:this.text},
+      });
+    }
+
+    var comment = new Comment('Awesome pic!');
+    // comment.save();
+
+    // save() should make a POST AJAX request to /api/comments and send the data under a field
+    // called 'text'. This endpoint doesn't exist so you won't be able to test it.
+
+
+    // 3. Translating arrays with map()
+    // Write the code that replaces the Rush Hour movie object with the Snowden object using Array.prototype.map()
+    var movies = [
+      { title: 'Fast and Furious', price: 14 },
+      { title: 'Bourne Identity', price: 7 },
+      { title: 'Triple X', price: 11 },
+      { title: 'Rush Hour', price: 8 },
+      { title: 'Happy Gilmore', price: 9 }
+    ];
+
+    var resMovie = movies.map(function(movie){
+      if(movie.title === 'Rush Hour'){
+        return {
+          title: 'Snowden',
+           price: 6.99,
+        }
+      }else {
+        return movie;
+      }
+    });
+
+    console.log(resMovie);
+</script>
