@@ -5,7 +5,8 @@ Random JS projects that I wrote for testing concept or practice UI elements.
 
 ### Some Screen Caps
 
-***Material Design Calculator***
+[***Material Design Calculator***](http://alexzhangji.github.io/random/Material_calculator/)
+***
 
 Pure JS/CSS working Android Calculator mimic with ripple animation.
 ![Material Design Calculator](http://i.imgur.com/xqlkjoh.png)
