@@ -1,0 +1,24 @@
+# Some Random JS Projects
+----------
+
+Random JS projects that I wrote for testing concept or practice UI elements.
+
+### Some Screen Caps
+
+***Material Design Calculator***
+
+Pure JS/CSS working Android Calculator mimic with ripple animation.
+![Material Design Calculator](http://i.imgur.com/xqlkjoh.png)
+
+
+***Google Keep UI Implementation***
+
+Implement Keep's UI elements with a movable layout. 
+![Keep mimic](http://i.imgur.com/j7NvcuU.png)
+
+
+
+***Voice Command***
+
+Using voice to make command to get image and play/pause whatever music you name.
+Integrated with Bing Image search and iTunes API and various Easter egg commands. 
