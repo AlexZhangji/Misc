@@ -94,3 +94,24 @@
   color: rgba(0,0,0,.54);
   font-size: 14;
 }
+
+.grey-icon{
+  float:left; margin-left:24px;color: rgba(0,0,0,.54);
+}
+
+#circular-profile {
+  float: right;
+  margin-right: 192px;
+  margin-left: 25px;
+  /* margin: 10px; */
+  width: 27px;
+  height: 27px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  border: 1px solid #FFF;
+  /*background: url(http://link-to-your/image.jpg) no-repeat;*/
+  box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, .8);
+}
