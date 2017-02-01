@@ -71,7 +71,7 @@ function search_img(term, type) {
       beforeSend: function(xhrObj) {
         // Request headers
         xhrObj.setRequestHeader("Content-Type","multipart/form-data");
-        xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "95e107fff6e24c849c1b6097b91eeb0e");
+        xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "597a9a7afb3a4dd8a8d1c4859b2b4ebf");
       },
       type: "GET",
       // Request body
